@@ -31,7 +31,7 @@ color ray_color(const ray &r, const hittable &world, int depth) {
     auto t = 0.5 * (unit_direction.y() + 1.0);
     return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);
 }
-
+/*
 hittableList random_scene() {
     hittableList world;
 
@@ -81,19 +81,62 @@ hittableList random_scene() {
 
     return world;
 }
+*/
 
+hittableList random_scene() {
+    hittableList world;
+    world.add(make_shared<sphere>(
+        vec3(0, -1000, 0), 1000, make_shared<lambertain>(vec3(0.5, 0.5, 0.5))));
+
+    int i = 1;
+    for (int a = -5; a < 5; a++) {
+        for (int b = -5; b < 5; b++) {
+            auto choose_mat = random_double();
+            vec3 center(a + 0.9 * random_double(), 0.2,
+                        b + 0.9 * random_double());
+            if ((center - vec3(4, .2, 0)).length() > 0.9) {
+                if (choose_mat < 0.8) {
+                    // diffuse
+                    auto albedo = vec3::random() * vec3::random();
+                    world.add(make_shared<moving_sphere>(
+                        center, center + vec3(0, random_double(0, .5), 0), 0.0,
+                        1.0, 0.2, make_shared<lambertain>(albedo)));
+                } else if (choose_mat < 0.95) {
+                    // metal
+                    auto albedo = vec3::random(.5, 1);
+                    auto fuzz = random_double(0, .5);
+                    world.add(make_shared<sphere>(
+                        center, 0.2, make_shared<metal>(albedo, fuzz)));
+                } else {
+                    // glass
+                    world.add(make_shared<sphere>(
+                        center, 0.2, make_shared<dielectric>(1.5)));
+                }
+            }
+        }
+    }
+
+    world.add(
+        make_shared<sphere>(vec3(0, 1, 0), 1.0, make_shared<dielectric>(1.5)));
+    world.add(make_shared<sphere>(
+        vec3(-4, 1, 0), 1.0, make_shared<lambertain>(vec3(0.4, 0.2, 0.1))));
+    world.add(make_shared<sphere>(
+        vec3(4, 1, 0), 1.0, make_shared<metal>(vec3(0.7, 0.6, 0.5), 0.0)));
+
+    return world;
+}
 int main() {
     vec3 RED(1, 0.5, 0.5);
     double start = omp_get_wtime(); //获取起始时间
     int numProcs = omp_get_num_procs();
     // Image
 
-    const auto aspect_ratio = 16.0 / 9.0;
+    /*const auto aspect_ratio = 16.0 / 9.0;
     const int Image_Width = 1200;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);
-    /*const auto aspect_ratio = 2.0 / 1.0;
+*/ const auto aspect_ratio = 2.0 / 1.0;
     const int Image_Width = 200;
-    const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);*/
+    const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);
     const int SPP = 100;
     const int max_depth = 8;
 
@@ -118,14 +161,14 @@ int main() {
 
     // Camera
 
-    point3 lookfrom(0, 0, 5);
-    point3 lookat(0, 0, 0);
+    vec3 lookfrom(13, 2, 3);
+    vec3 lookat(0, 0, 0);
     vec3 vup(0, 1, 0);
     auto dist_to_focus = 10.0;
-    auto aperture = 0.1;
+    auto aperture = 0.0;
 
-    camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture,
-               dist_to_focus);
+    camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus,
+               0.0, 1.0);
 
     // construct image source
     vector<vector<int>> Image(Image_Height * Image_Width);

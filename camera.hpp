@@ -18,7 +18,9 @@ public:
     //          horizontal(vec3(4.0, 0.0, 0.0)), vertical(vec3(0.0, 2.0, 0.0)),
     //          origin(vec3(0.0, 0.0, 0.0))
     camera(vec3 lookfrom, vec3 lookat, vec3 vup, float vfov, float aspect,
-           double aperture, double focus_dist) {
+           double aperture, double focus_dist, double t0 = 0, double t1 = 0) {
+        time0 = t0;
+        time1 = t1;
         double theta = degrees_to_radians(vfov);
         double h = tan(theta / 2);
         auto viewport_height = 2.0 * h;
@@ -38,8 +40,10 @@ public:
     ray get_ray(float s, float t) {
         vec3 rd = lens_radius * random_in_unit_disk();
         vec3 offset = u * rd.x() + v * rd.y();
-        return ray(origin + offset, lower_left_corner + s * horizontal +
-                                        t * vertical - origin - offset);
+        return ray(origin + offset,
+                   lower_left_corner + s * horizontal + t * vertical - origin -
+                       offset,
+                   random_double(time0, time1));
     };
 
 private:
@@ -48,6 +52,7 @@ private:
     vec3 horizontal;
     vec3 vertical;
     vec3 u, v, w;
+    double time0, time1; // shutter open/close times
     double lens_radius;
 };
 #endif // RAYTRACE_CAMERA_HPP

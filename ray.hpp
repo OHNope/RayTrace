@@ -10,12 +10,15 @@
 class ray {
 public:
     ray() = default;
-    ray(const vec3 &a, const vec3 &b) : A(a), B(b){};
+    ray(const vec3 &origin, const vec3 &direction, double time = 0.0)
+        : A(origin), B(direction), tm(time) {}
     vec3 origin() const { return A; };
     vec3 direction() const { return B; };
     vec3 point_at(float t) const { return A + B * t; };
+    double time() const { return tm; }
 
     vec3 A, B;
+    double tm;
 };
 
 #endif // RAYTRACE_RAY_HPP
