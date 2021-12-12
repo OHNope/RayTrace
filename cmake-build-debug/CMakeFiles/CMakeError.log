@@ -1,876 +1,213 @@
-Detecting CXX OpenMP failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc 
+Build flags: 
+Id flags:  
 
-Run Build Command(s):/usr/bin/make cmTC_3df80/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_3df80.dir/build.make CMakeFiles/cmTC_3df80.dir/build
-Building CXX object CMakeFiles/cmTC_3df80.dir/OpenMPTryFlag.cpp.o
-/usr/local/bin/clang++   -fopenmp=libomp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_3df80.dir/OpenMPTryFlag.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- (in-process)
- "/usr/local/Cellar/llvm/13.0.0_1/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu penryn -tune-cpu generic -debugger-tuning=lldb -target-linker-version 711 -v -fcoverage-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -resource-dir /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -stdlib=libc++ -internal-isystem /usr/local/bin/../include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include -internal-isystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include -fdeprecated-macro -fdebug-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fopenmp -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_3df80.dir/OpenMPTryFlag.cpp.o -x c++ /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-clang -cc1 version 13.0.0 based upon LLVM 13.0.0 default target x86_64-apple-darwin21.1.0
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/local/bin/../include/c++/v1
- /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_3df80
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3df80.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -fopenmp=libomp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_3df80.dir/OpenMPTryFlag.cpp.o -o cmTC_3df80  -v -Wl,-v 
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- "/usr/bin/ld" -demangle -lto_library /usr/local/Cellar/llvm/13.0.0_1/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk -o cmTC_3df80 -search_paths_first -headerpad_max_install_names CMakeFiles/cmTC_3df80.dir/OpenMPTryFlag.cpp.o -v -lomp -lc++ -lSystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-711
-BUILD 18:11:15 Aug  3 2021
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks/
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_3df80] Error 1
-make: *** [cmTC_3df80/fast] Error 2
-
-
-
-Detecting CXX OpenMP failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_53b8d/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_53b8d.dir/build.make CMakeFiles/cmTC_53b8d.dir/build
-Building CXX object CMakeFiles/cmTC_53b8d.dir/OpenMPTryFlag.cpp.o
-/usr/local/bin/clang++   -fopenmp=libiomp5 -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_53b8d.dir/OpenMPTryFlag.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- (in-process)
- "/usr/local/Cellar/llvm/13.0.0_1/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu penryn -tune-cpu generic -debugger-tuning=lldb -target-linker-version 711 -v -fcoverage-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -resource-dir /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -stdlib=libc++ -internal-isystem /usr/local/bin/../include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include -internal-isystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include -fdeprecated-macro -fdebug-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fopenmp -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_53b8d.dir/OpenMPTryFlag.cpp.o -x c++ /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-clang -cc1 version 13.0.0 based upon LLVM 13.0.0 default target x86_64-apple-darwin21.1.0
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/local/bin/../include/c++/v1
- /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_53b8d
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_53b8d.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -fopenmp=libiomp5 -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_53b8d.dir/OpenMPTryFlag.cpp.o -o cmTC_53b8d  -v -Wl,-v 
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- "/usr/bin/ld" -demangle -lto_library /usr/local/Cellar/llvm/13.0.0_1/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk -o cmTC_53b8d -search_paths_first -headerpad_max_install_names CMakeFiles/cmTC_53b8d.dir/OpenMPTryFlag.cpp.o -v -liomp5 -lc++ -lSystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-711
-BUILD 18:11:15 Aug  3 2021
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks/
-ld: library not found for -liomp5
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_53b8d] Error 1
-make: *** [cmTC_53b8d/fast] Error 2
-
-
-
-Detecting CXX OpenMP failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_c0f7e/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_c0f7e.dir/build.make CMakeFiles/cmTC_c0f7e.dir/build
-Building CXX object CMakeFiles/cmTC_c0f7e.dir/OpenMPTryFlag.cpp.o
-/usr/local/bin/clang++   -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_c0f7e.dir/OpenMPTryFlag.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- (in-process)
- "/usr/local/Cellar/llvm/13.0.0_1/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu penryn -tune-cpu generic -debugger-tuning=lldb -target-linker-version 711 -v -fcoverage-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -resource-dir /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -stdlib=libc++ -internal-isystem /usr/local/bin/../include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include -internal-isystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include -fdeprecated-macro -fdebug-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fopenmp -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_c0f7e.dir/OpenMPTryFlag.cpp.o -x c++ /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-clang -cc1 version 13.0.0 based upon LLVM 13.0.0 default target x86_64-apple-darwin21.1.0
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/local/bin/../include/c++/v1
- /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_c0f7e
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c0f7e.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_c0f7e.dir/OpenMPTryFlag.cpp.o -o cmTC_c0f7e  -v -Wl,-v 
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- "/usr/bin/ld" -demangle -lto_library /usr/local/Cellar/llvm/13.0.0_1/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk -o cmTC_c0f7e -search_paths_first -headerpad_max_install_names CMakeFiles/cmTC_c0f7e.dir/OpenMPTryFlag.cpp.o -v -lomp -lc++ -lSystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-711
-BUILD 18:11:15 Aug  3 2021
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks/
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_c0f7e] Error 1
-make: *** [cmTC_c0f7e/fast] Error 2
-
-
-
-Detecting CXX OpenMP failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_349be/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_349be.dir/build.make CMakeFiles/cmTC_349be.dir/build
-Building CXX object CMakeFiles/cmTC_349be.dir/OpenMPTryFlag.cpp.o
-/usr/local/bin/clang++   -Xclang -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_349be.dir/OpenMPTryFlag.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- (in-process)
- "/usr/local/Cellar/llvm/13.0.0_1/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu penryn -tune-cpu generic -debugger-tuning=lldb -target-linker-version 711 -v -fcoverage-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -resource-dir /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -stdlib=libc++ -internal-isystem /usr/local/bin/../include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include -internal-isystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include -fdeprecated-macro -fdebug-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fopenmp -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_349be.dir/OpenMPTryFlag.cpp.o -x c++ /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-clang -cc1 version 13.0.0 based upon LLVM 13.0.0 default target x86_64-apple-darwin21.1.0
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/local/bin/../include/c++/v1
- /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_349be
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_349be.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xclang -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_349be.dir/OpenMPTryFlag.cpp.o -o cmTC_349be  -v -Wl,-v 
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- "/usr/bin/ld" -demangle -lto_library /usr/local/Cellar/llvm/13.0.0_1/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk -o cmTC_349be -search_paths_first -headerpad_max_install_names CMakeFiles/cmTC_349be.dir/OpenMPTryFlag.cpp.o -v -lc++ -lSystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-711
-BUILD 18:11:15 Aug  3 2021
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks/
-Undefined symbols for architecture x86_64:
-  "_omp_get_max_threads", referenced from:
-      _main in OpenMPTryFlag.cpp.o
-ld: symbol(s) not found for architecture x86_64
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_349be] Error 1
-make: *** [cmTC_349be/fast] Error 2
-
-
-
-Detecting CXX OpenMP failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_285af/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_285af.dir/build.make CMakeFiles/cmTC_285af.dir/build
-Building CXX object CMakeFiles/cmTC_285af.dir/OpenMPTryFlag.cpp.o
-/usr/local/bin/clang++   -fopenmp=libomp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_285af.dir/OpenMPTryFlag.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- (in-process)
- "/usr/local/Cellar/llvm/13.0.0_1/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu penryn -tune-cpu generic -debugger-tuning=lldb -target-linker-version 711 -v -fcoverage-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -resource-dir /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -c-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include -stdlib=libc++ -internal-isystem /usr/local/bin/../include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include -internal-isystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include -fdeprecated-macro -fdebug-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fopenmp -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_285af.dir/OpenMPTryFlag.cpp.o -x c++ /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-clang -cc1 version 13.0.0 based upon LLVM 13.0.0 default target x86_64-apple-darwin21.1.0
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/local/bin/../include/c++/v1
- /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_285af
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_285af.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -fopenmp=libomp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_285af.dir/OpenMPTryFlag.cpp.o -o cmTC_285af  -v -Wl,-v 
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- "/usr/bin/ld" -demangle -lto_library /usr/local/Cellar/llvm/13.0.0_1/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk -o cmTC_285af -L/usr/local/Cellar/gsl/1.16/lib/ -search_paths_first -headerpad_max_install_names CMakeFiles/cmTC_285af.dir/OpenMPTryFlag.cpp.o -v -lomp -lc++ -lSystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-711
-BUILD 18:11:15 Aug  3 2021
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
+The output was:
+1
 ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks/
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_285af] Error 1
-make: *** [cmTC_285af/fast] Error 2
+ld: library not found for -lSystem
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
 
 
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
+Build flags: 
+Id flags:  
 
-Detecting CXX OpenMP failed with the following output:
+The output was:
+1
+ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
+ld: library not found for -lc++
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Detecting C OpenMP version failed with the following output:
 Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_2589a/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_2589a.dir/build.make CMakeFiles/cmTC_2589a.dir/build
-Building CXX object CMakeFiles/cmTC_2589a.dir/OpenMPTryFlag.cpp.o
-/usr/local/bin/clang++   -fopenmp=libiomp5 -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_2589a.dir/OpenMPTryFlag.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- (in-process)
- "/usr/local/Cellar/llvm/13.0.0_1/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu penryn -tune-cpu generic -debugger-tuning=lldb -target-linker-version 711 -v -fcoverage-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -resource-dir /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -c-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include -stdlib=libc++ -internal-isystem /usr/local/bin/../include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include -internal-isystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include -fdeprecated-macro -fdebug-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fopenmp -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_2589a.dir/OpenMPTryFlag.cpp.o -x c++ /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-clang -cc1 version 13.0.0 based upon LLVM 13.0.0 default target x86_64-apple-darwin21.1.0
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/local/bin/../include/c++/v1
- /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_2589a
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2589a.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -fopenmp=libiomp5 -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_2589a.dir/OpenMPTryFlag.cpp.o -o cmTC_2589a  -v -Wl,-v 
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- "/usr/bin/ld" -demangle -lto_library /usr/local/Cellar/llvm/13.0.0_1/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk -o cmTC_2589a -L/usr/local/Cellar/gsl/1.16/lib/ -search_paths_first -headerpad_max_install_names CMakeFiles/cmTC_2589a.dir/OpenMPTryFlag.cpp.o -v -liomp5 -lc++ -lSystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-711
-BUILD 18:11:15 Aug  3 2021
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
+Run Build Command(s):/usr/bin/make cmTC_e1ff8/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_e1ff8.dir/build.make CMakeFiles/cmTC_e1ff8.dir/build
+Building C object CMakeFiles/cmTC_e1ff8.dir/OpenMPCheckVersion.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_e1ff8.dir/OpenMPCheckVersion.c.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.c
+/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.c:3:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_e1ff8.dir/OpenMPCheckVersion.c.o] Error 1
+make: *** [cmTC_e1ff8/fast] Error 2
+
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+1
 ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks/
-ld: library not found for -liomp5
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_2589a] Error 1
-make: *** [cmTC_2589a/fast] Error 2
+ld: library not found for -lSystem
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
 
 
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ 
+Build flags: 
+Id flags:  
 
-Detecting CXX OpenMP failed with the following output:
+The output was:
+1
+ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
+ld: library not found for -lc++
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Detecting C OpenMP version failed with the following output:
 Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_f428e/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_f428e.dir/build.make CMakeFiles/cmTC_f428e.dir/build
-Building CXX object CMakeFiles/cmTC_f428e.dir/OpenMPTryFlag.cpp.o
-/usr/local/bin/clang++   -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_f428e.dir/OpenMPTryFlag.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- (in-process)
- "/usr/local/Cellar/llvm/13.0.0_1/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu penryn -tune-cpu generic -debugger-tuning=lldb -target-linker-version 711 -v -fcoverage-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -resource-dir /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -c-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include -stdlib=libc++ -internal-isystem /usr/local/bin/../include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include -internal-isystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include -fdeprecated-macro -fdebug-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fopenmp -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_f428e.dir/OpenMPTryFlag.cpp.o -x c++ /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-clang -cc1 version 13.0.0 based upon LLVM 13.0.0 default target x86_64-apple-darwin21.1.0
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/local/bin/../include/c++/v1
- /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_f428e
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f428e.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_f428e.dir/OpenMPTryFlag.cpp.o -o cmTC_f428e  -v -Wl,-v 
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- "/usr/bin/ld" -demangle -lto_library /usr/local/Cellar/llvm/13.0.0_1/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk -o cmTC_f428e -L/usr/local/Cellar/gsl/1.16/lib/ -search_paths_first -headerpad_max_install_names CMakeFiles/cmTC_f428e.dir/OpenMPTryFlag.cpp.o -v -lomp -lc++ -lSystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-711
-BUILD 18:11:15 Aug  3 2021
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks/
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_f428e] Error 1
-make: *** [cmTC_f428e/fast] Error 2
-
-
-
-Detecting CXX OpenMP failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_669a8/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_669a8.dir/build.make CMakeFiles/cmTC_669a8.dir/build
-Building CXX object CMakeFiles/cmTC_669a8.dir/OpenMPTryFlag.cpp.o
-/usr/local/bin/clang++   -Xclang -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_669a8.dir/OpenMPTryFlag.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- (in-process)
- "/usr/local/Cellar/llvm/13.0.0_1/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu penryn -tune-cpu generic -debugger-tuning=lldb -target-linker-version 711 -v -fcoverage-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -resource-dir /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -c-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include -stdlib=libc++ -internal-isystem /usr/local/bin/../include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include -internal-isystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include -fdeprecated-macro -fdebug-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fopenmp -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_669a8.dir/OpenMPTryFlag.cpp.o -x c++ /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-clang -cc1 version 13.0.0 based upon LLVM 13.0.0 default target x86_64-apple-darwin21.1.0
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/local/bin/../include/c++/v1
- /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_669a8
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_669a8.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xclang -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_669a8.dir/OpenMPTryFlag.cpp.o -o cmTC_669a8  -v -Wl,-v 
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- "/usr/bin/ld" -demangle -lto_library /usr/local/Cellar/llvm/13.0.0_1/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk -o cmTC_669a8 -L/usr/local/Cellar/gsl/1.16/lib/ -search_paths_first -headerpad_max_install_names CMakeFiles/cmTC_669a8.dir/OpenMPTryFlag.cpp.o -v -lc++ -lSystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-711
-BUILD 18:11:15 Aug  3 2021
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks/
-Undefined symbols for architecture x86_64:
-  "_omp_get_max_threads", referenced from:
-      _main in OpenMPTryFlag.cpp.o
-ld: symbol(s) not found for architecture x86_64
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_669a8] Error 1
-make: *** [cmTC_669a8/fast] Error 2
-
-
-
-Detecting CXX OpenMP failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_2c162/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_2c162.dir/build.make CMakeFiles/cmTC_2c162.dir/build
-Building CXX object CMakeFiles/cmTC_2c162.dir/OpenMPTryFlag.cpp.o
-/usr/local/bin/clang++   -fopenmp=libomp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_2c162.dir/OpenMPTryFlag.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- (in-process)
- "/usr/local/Cellar/llvm/13.0.0_1/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu penryn -tune-cpu generic -debugger-tuning=lldb -target-linker-version 711 -v -fcoverage-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -resource-dir /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -c-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include -stdlib=libc++ -internal-isystem /usr/local/bin/../include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include -internal-isystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include -fdeprecated-macro -fdebug-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fopenmp -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_2c162.dir/OpenMPTryFlag.cpp.o -x c++ /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-clang -cc1 version 13.0.0 based upon LLVM 13.0.0 default target x86_64-apple-darwin21.1.0
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/local/bin/../include/c++/v1
- /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_2c162
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c162.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -fopenmp=libomp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_2c162.dir/OpenMPTryFlag.cpp.o -o cmTC_2c162  -v -Wl,-v 
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- "/usr/bin/ld" -demangle -lto_library /usr/local/Cellar/llvm/13.0.0_1/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk -o cmTC_2c162 -L/usr/local/Cellar/gsl/1.16/lib/ -search_paths_first -headerpad_max_install_names CMakeFiles/cmTC_2c162.dir/OpenMPTryFlag.cpp.o -v -lomp -lc++ -lSystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-711
-BUILD 18:11:15 Aug  3 2021
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks/
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_2c162] Error 1
-make: *** [cmTC_2c162/fast] Error 2
-
-
-
-Detecting CXX OpenMP failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_03fc4/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_03fc4.dir/build.make CMakeFiles/cmTC_03fc4.dir/build
-Building CXX object CMakeFiles/cmTC_03fc4.dir/OpenMPTryFlag.cpp.o
-/usr/local/bin/clang++   -fopenmp=libiomp5 -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_03fc4.dir/OpenMPTryFlag.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- (in-process)
- "/usr/local/Cellar/llvm/13.0.0_1/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu penryn -tune-cpu generic -debugger-tuning=lldb -target-linker-version 711 -v -fcoverage-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -resource-dir /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -c-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include -stdlib=libc++ -internal-isystem /usr/local/bin/../include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include -internal-isystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include -fdeprecated-macro -fdebug-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fopenmp -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_03fc4.dir/OpenMPTryFlag.cpp.o -x c++ /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-clang -cc1 version 13.0.0 based upon LLVM 13.0.0 default target x86_64-apple-darwin21.1.0
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/local/bin/../include/c++/v1
- /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_03fc4
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_03fc4.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -fopenmp=libiomp5 -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_03fc4.dir/OpenMPTryFlag.cpp.o -o cmTC_03fc4  -v -Wl,-v 
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- "/usr/bin/ld" -demangle -lto_library /usr/local/Cellar/llvm/13.0.0_1/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk -o cmTC_03fc4 -L/usr/local/Cellar/gsl/1.16/lib/ -search_paths_first -headerpad_max_install_names CMakeFiles/cmTC_03fc4.dir/OpenMPTryFlag.cpp.o -v -liomp5 -lc++ -lSystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-711
-BUILD 18:11:15 Aug  3 2021
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks/
-ld: library not found for -liomp5
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_03fc4] Error 1
-make: *** [cmTC_03fc4/fast] Error 2
-
-
-
-Detecting CXX OpenMP failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_589f3/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_589f3.dir/build.make CMakeFiles/cmTC_589f3.dir/build
-Building CXX object CMakeFiles/cmTC_589f3.dir/OpenMPTryFlag.cpp.o
-/usr/local/bin/clang++   -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_589f3.dir/OpenMPTryFlag.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- (in-process)
- "/usr/local/Cellar/llvm/13.0.0_1/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu penryn -tune-cpu generic -debugger-tuning=lldb -target-linker-version 711 -v -fcoverage-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -resource-dir /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -c-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include -stdlib=libc++ -internal-isystem /usr/local/bin/../include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include -internal-isystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include -fdeprecated-macro -fdebug-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fopenmp -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_589f3.dir/OpenMPTryFlag.cpp.o -x c++ /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-clang -cc1 version 13.0.0 based upon LLVM 13.0.0 default target x86_64-apple-darwin21.1.0
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/local/bin/../include/c++/v1
- /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_589f3
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_589f3.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_589f3.dir/OpenMPTryFlag.cpp.o -o cmTC_589f3  -v -Wl,-v 
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- "/usr/bin/ld" -demangle -lto_library /usr/local/Cellar/llvm/13.0.0_1/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk -o cmTC_589f3 -L/usr/local/Cellar/gsl/1.16/lib/ -search_paths_first -headerpad_max_install_names CMakeFiles/cmTC_589f3.dir/OpenMPTryFlag.cpp.o -v -lomp -lc++ -lSystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-711
-BUILD 18:11:15 Aug  3 2021
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks/
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_589f3] Error 1
-make: *** [cmTC_589f3/fast] Error 2
-
-
-
-Detecting CXX OpenMP failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_d9546/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_d9546.dir/build.make CMakeFiles/cmTC_d9546.dir/build
-Building CXX object CMakeFiles/cmTC_d9546.dir/OpenMPTryFlag.cpp.o
-/usr/local/bin/clang++   -Xclang -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_d9546.dir/OpenMPTryFlag.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- (in-process)
- "/usr/local/Cellar/llvm/13.0.0_1/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu penryn -tune-cpu generic -debugger-tuning=lldb -target-linker-version 711 -v -fcoverage-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -resource-dir /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -c-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include -stdlib=libc++ -internal-isystem /usr/local/bin/../include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include -internal-isystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include -fdeprecated-macro -fdebug-compilation-dir=/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fopenmp -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_d9546.dir/OpenMPTryFlag.cpp.o -x c++ /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
-clang -cc1 version 13.0.0 based upon LLVM 13.0.0 default target x86_64-apple-darwin21.1.0
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/local/include"
-ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/Library/Frameworks"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/local/bin/../include/c++/v1
- /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/usr/include
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk/System/Library/Frameworks (framework directory)
-End of search list.
-Linking CXX executable cmTC_d9546
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d9546.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xclang -fopenmp -v -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_d9546.dir/OpenMPTryFlag.cpp.o -o cmTC_d9546  -v -Wl,-v 
-Homebrew clang version 13.0.0
-Target: x86_64-apple-darwin21.1.0
-Thread model: posix
-InstalledDir: /usr/local/bin
- "/usr/bin/ld" -demangle -lto_library /usr/local/Cellar/llvm/13.0.0_1/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk -o cmTC_d9546 -L/usr/local/Cellar/gsl/1.16/lib/ -search_paths_first -headerpad_max_install_names CMakeFiles/cmTC_d9546.dir/OpenMPTryFlag.cpp.o -v -lc++ -lSystem /usr/local/Cellar/llvm/13.0.0_1/lib/clang/13.0.0/lib/darwin/libclang_rt.osx.a
-@(#)PROGRAM:ld  PROJECT:ld64-711
-BUILD 18:11:15 Aug  3 2021
-configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-Library search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/usr/lib
-Framework search paths:
-	/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk/System/Library/Frameworks/
-Undefined symbols for architecture x86_64:
-  "_omp_get_max_threads", referenced from:
-      _main in OpenMPTryFlag.cpp.o
-ld: symbol(s) not found for architecture x86_64
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_d9546] Error 1
-make: *** [cmTC_d9546/fast] Error 2
+Run Build Command(s):/usr/bin/make cmTC_8aac8/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_8aac8.dir/build.make CMakeFiles/cmTC_8aac8.dir/build
+Building C object CMakeFiles/cmTC_8aac8.dir/OpenMPCheckVersion.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_8aac8.dir/OpenMPCheckVersion.c.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.c
+/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.c:3:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_8aac8.dir/OpenMPCheckVersion.c.o] Error 1
+make: *** [cmTC_8aac8/fast] Error 2
 
 
 
 Detecting CXX OpenMP version failed with the following output:
 Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_cd5bb/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_cd5bb.dir/build.make CMakeFiles/cmTC_cd5bb.dir/build
-Building CXX object CMakeFiles/cmTC_cd5bb.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_cd5bb.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_cd5bb
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cd5bb.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_cd5bb.dir/OpenMPCheckVersion.cpp.o -o cmTC_cd5bb 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_cd5bb] Error 1
-make: *** [cmTC_cd5bb/fast] Error 2
+Run Build Command(s):/usr/bin/make cmTC_4e1dc/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_4e1dc.dir/build.make CMakeFiles/cmTC_4e1dc.dir/build
+Building CXX object CMakeFiles/cmTC_4e1dc.dir/OpenMPCheckVersion.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++2a -o CMakeFiles/cmTC_4e1dc.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
+/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp:3:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_4e1dc.dir/OpenMPCheckVersion.cpp.o] Error 1
+make: *** [cmTC_4e1dc/fast] Error 2
+
+
+
+Detecting C OpenMP version failed with the following output:
+Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c9667/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_c9667.dir/build.make CMakeFiles/cmTC_c9667.dir/build
+Building C object CMakeFiles/cmTC_c9667.dir/OpenMPCheckVersion.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_c9667.dir/OpenMPCheckVersion.c.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.c
+/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.c:3:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_c9667.dir/OpenMPCheckVersion.c.o] Error 1
+make: *** [cmTC_c9667/fast] Error 2
 
 
 
 Detecting CXX OpenMP version failed with the following output:
 Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_91e47/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_91e47.dir/build.make CMakeFiles/cmTC_91e47.dir/build
-Building CXX object CMakeFiles/cmTC_91e47.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_91e47.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_91e47
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_91e47.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_91e47.dir/OpenMPCheckVersion.cpp.o -o cmTC_91e47 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[2]: *** [cmTC_91e47] Error 1
-make[1]: *** [cmTC_91e47/fast] Error 2
+Run Build Command(s):/usr/bin/make cmTC_b103f/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_b103f.dir/build.make CMakeFiles/cmTC_b103f.dir/build
+Building CXX object CMakeFiles/cmTC_b103f.dir/OpenMPCheckVersion.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++2a -o CMakeFiles/cmTC_b103f.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
+/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp:3:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_b103f.dir/OpenMPCheckVersion.cpp.o] Error 1
+make: *** [cmTC_b103f/fast] Error 2
+
+
+
+Detecting C OpenMP version failed with the following output:
+Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bc70c/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_bc70c.dir/build.make CMakeFiles/cmTC_bc70c.dir/build
+Building C object CMakeFiles/cmTC_bc70c.dir/OpenMPCheckVersion.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_bc70c.dir/OpenMPCheckVersion.c.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.c
+/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.c:3:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_bc70c.dir/OpenMPCheckVersion.c.o] Error 1
+make: *** [cmTC_bc70c/fast] Error 2
 
 
 
 Detecting CXX OpenMP version failed with the following output:
 Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_8581b/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_8581b.dir/build.make CMakeFiles/cmTC_8581b.dir/build
-Building CXX object CMakeFiles/cmTC_8581b.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_8581b.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_8581b
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8581b.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_8581b.dir/OpenMPCheckVersion.cpp.o -o cmTC_8581b 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_8581b] Error 1
-make: *** [cmTC_8581b/fast] Error 2
+Run Build Command(s):/usr/bin/make cmTC_a3b71/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_a3b71.dir/build.make CMakeFiles/cmTC_a3b71.dir/build
+Building CXX object CMakeFiles/cmTC_a3b71.dir/OpenMPCheckVersion.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++2a -o CMakeFiles/cmTC_a3b71.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
+/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp:3:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_a3b71.dir/OpenMPCheckVersion.cpp.o] Error 1
+make: *** [cmTC_a3b71/fast] Error 2
+
+
+
+Detecting C OpenMP version failed with the following output:
+Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_9cc1e/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_9cc1e.dir/build.make CMakeFiles/cmTC_9cc1e.dir/build
+Building C object CMakeFiles/cmTC_9cc1e.dir/OpenMPCheckVersion.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_9cc1e.dir/OpenMPCheckVersion.c.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.c
+/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.c:3:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_9cc1e.dir/OpenMPCheckVersion.c.o] Error 1
+make: *** [cmTC_9cc1e/fast] Error 2
 
 
 
 Detecting CXX OpenMP version failed with the following output:
 Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_ff0ac/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_ff0ac.dir/build.make CMakeFiles/cmTC_ff0ac.dir/build
-Building CXX object CMakeFiles/cmTC_ff0ac.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_ff0ac.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_ff0ac
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ff0ac.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_ff0ac.dir/OpenMPCheckVersion.cpp.o -o cmTC_ff0ac 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_ff0ac] Error 1
-make: *** [cmTC_ff0ac/fast] Error 2
+Run Build Command(s):/usr/bin/make cmTC_c1fe7/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_c1fe7.dir/build.make CMakeFiles/cmTC_c1fe7.dir/build
+Building CXX object CMakeFiles/cmTC_c1fe7.dir/OpenMPCheckVersion.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++2a -o CMakeFiles/cmTC_c1fe7.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
+/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp:3:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_c1fe7.dir/OpenMPCheckVersion.cpp.o] Error 1
+make: *** [cmTC_c1fe7/fast] Error 2
+
+
+
+Detecting C OpenMP version failed with the following output:
+Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_851b1/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_851b1.dir/build.make CMakeFiles/cmTC_851b1.dir/build
+Building C object CMakeFiles/cmTC_851b1.dir/OpenMPCheckVersion.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -o CMakeFiles/cmTC_851b1.dir/OpenMPCheckVersion.c.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.c
+/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.c:3:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_851b1.dir/OpenMPCheckVersion.c.o] Error 1
+make: *** [cmTC_851b1/fast] Error 2
 
 
 
 Detecting CXX OpenMP version failed with the following output:
 Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_d10c5/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_d10c5.dir/build.make CMakeFiles/cmTC_d10c5.dir/build
-Building CXX object CMakeFiles/cmTC_d10c5.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_d10c5.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_d10c5
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d10c5.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_d10c5.dir/OpenMPCheckVersion.cpp.o -o cmTC_d10c5 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_d10c5] Error 1
-make: *** [cmTC_d10c5/fast] Error 2
-
-
-
-Detecting CXX OpenMP version failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_9c83d/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_9c83d.dir/build.make CMakeFiles/cmTC_9c83d.dir/build
-Building CXX object CMakeFiles/cmTC_9c83d.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_9c83d.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_9c83d
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9c83d.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_9c83d.dir/OpenMPCheckVersion.cpp.o -o cmTC_9c83d 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_9c83d] Error 1
-make: *** [cmTC_9c83d/fast] Error 2
-
-
-
-Detecting CXX OpenMP version failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_c8c20/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_c8c20.dir/build.make CMakeFiles/cmTC_c8c20.dir/build
-Building CXX object CMakeFiles/cmTC_c8c20.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_c8c20.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_c8c20
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c8c20.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_c8c20.dir/OpenMPCheckVersion.cpp.o -o cmTC_c8c20 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_c8c20] Error 1
-make: *** [cmTC_c8c20/fast] Error 2
-
-
-
-Detecting CXX OpenMP version failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_c20eb/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_c20eb.dir/build.make CMakeFiles/cmTC_c20eb.dir/build
-Building CXX object CMakeFiles/cmTC_c20eb.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_c20eb.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_c20eb
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c20eb.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_c20eb.dir/OpenMPCheckVersion.cpp.o -o cmTC_c20eb 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_c20eb] Error 1
-make: *** [cmTC_c20eb/fast] Error 2
-
-
-
-Detecting CXX OpenMP version failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_e163b/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_e163b.dir/build.make CMakeFiles/cmTC_e163b.dir/build
-Building CXX object CMakeFiles/cmTC_e163b.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_e163b.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_e163b
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e163b.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_e163b.dir/OpenMPCheckVersion.cpp.o -o cmTC_e163b 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_e163b] Error 1
-make: *** [cmTC_e163b/fast] Error 2
-
-
-
-Detecting CXX OpenMP version failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_6efe8/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_6efe8.dir/build.make CMakeFiles/cmTC_6efe8.dir/build
-Building CXX object CMakeFiles/cmTC_6efe8.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_6efe8.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_6efe8
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6efe8.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_6efe8.dir/OpenMPCheckVersion.cpp.o -o cmTC_6efe8 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_6efe8] Error 1
-make: *** [cmTC_6efe8/fast] Error 2
-
-
-
-Detecting CXX OpenMP version failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_45a90/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_45a90.dir/build.make CMakeFiles/cmTC_45a90.dir/build
-Building CXX object CMakeFiles/cmTC_45a90.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_45a90.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_45a90
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_45a90.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_45a90.dir/OpenMPCheckVersion.cpp.o -o cmTC_45a90 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_45a90] Error 1
-make: *** [cmTC_45a90/fast] Error 2
-
-
-
-Detecting CXX OpenMP version failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_b0ff5/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_b0ff5.dir/build.make CMakeFiles/cmTC_b0ff5.dir/build
-Building CXX object CMakeFiles/cmTC_b0ff5.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_b0ff5.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_b0ff5
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b0ff5.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_b0ff5.dir/OpenMPCheckVersion.cpp.o -o cmTC_b0ff5 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_b0ff5] Error 1
-make: *** [cmTC_b0ff5/fast] Error 2
-
-
-
-Detecting CXX OpenMP version failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_88dac/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_88dac.dir/build.make CMakeFiles/cmTC_88dac.dir/build
-Building CXX object CMakeFiles/cmTC_88dac.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_88dac.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_88dac
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_88dac.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_88dac.dir/OpenMPCheckVersion.cpp.o -o cmTC_88dac 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_88dac] Error 1
-make: *** [cmTC_88dac/fast] Error 2
-
-
-
-Detecting CXX OpenMP version failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_12e11/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_12e11.dir/build.make CMakeFiles/cmTC_12e11.dir/build
-Building CXX object CMakeFiles/cmTC_12e11.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_12e11.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_12e11
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_12e11.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_12e11.dir/OpenMPCheckVersion.cpp.o -o cmTC_12e11 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_12e11] Error 1
-make: *** [cmTC_12e11/fast] Error 2
-
-
-
-Detecting CXX OpenMP version failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_236b6/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_236b6.dir/build.make CMakeFiles/cmTC_236b6.dir/build
-Building CXX object CMakeFiles/cmTC_236b6.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_236b6.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_236b6
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_236b6.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_236b6.dir/OpenMPCheckVersion.cpp.o -o cmTC_236b6 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_236b6] Error 1
-make: *** [cmTC_236b6/fast] Error 2
-
-
-
-Detecting CXX OpenMP version failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_8033c/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_8033c.dir/build.make CMakeFiles/cmTC_8033c.dir/build
-Building CXX object CMakeFiles/cmTC_8033c.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_8033c.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_8033c
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8033c.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_8033c.dir/OpenMPCheckVersion.cpp.o -o cmTC_8033c 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_8033c] Error 1
-make: *** [cmTC_8033c/fast] Error 2
-
-
-
-Detecting CXX OpenMP version failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_23bc8/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_23bc8.dir/build.make CMakeFiles/cmTC_23bc8.dir/build
-Building CXX object CMakeFiles/cmTC_23bc8.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_23bc8.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_23bc8
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_23bc8.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_23bc8.dir/OpenMPCheckVersion.cpp.o -o cmTC_23bc8 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_23bc8] Error 1
-make: *** [cmTC_23bc8/fast] Error 2
-
-
-
-Detecting CXX OpenMP version failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_323ac/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_323ac.dir/build.make CMakeFiles/cmTC_323ac.dir/build
-Building CXX object CMakeFiles/cmTC_323ac.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_323ac.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_323ac
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_323ac.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_323ac.dir/OpenMPCheckVersion.cpp.o -o cmTC_323ac 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_323ac] Error 1
-make: *** [cmTC_323ac/fast] Error 2
-
-
-
-Detecting CXX OpenMP version failed with the following output:
-Change Dir: /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_16483/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_16483.dir/build.make CMakeFiles/cmTC_16483.dir/build
-Building CXX object CMakeFiles/cmTC_16483.dir/OpenMPCheckVersion.cpp.o
-/usr/local/bin/clang++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++20 -o CMakeFiles/cmTC_16483.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-Linking CXX executable cmTC_16483
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_16483.dir/link.txt --verbose=1
-/usr/local/bin/clang++  -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_16483.dir/OpenMPCheckVersion.cpp.o -o cmTC_16483 
-ld: warning: directory not found for option '-L/usr/local/Cellar/gsl/1.16/lib/'
-ld: library not found for -lomp
-clang-13: error: linker command failed with exit code 1 (use -v to see invocation)
-make[1]: *** [cmTC_16483] Error 1
-make: *** [cmTC_16483/fast] Error 2
+Run Build Command(s):/usr/bin/make cmTC_791ba/fast && /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_791ba.dir/build.make CMakeFiles/cmTC_791ba.dir/build
+Building CXX object CMakeFiles/cmTC_791ba.dir/OpenMPCheckVersion.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.0.sdk -std=gnu++2a -o CMakeFiles/cmTC_791ba.dir/OpenMPCheckVersion.cpp.o -c /Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
+/Users/xby/CLionProjects/RayTrace/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp:3:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_791ba.dir/OpenMPCheckVersion.cpp.o] Error 1
+make: *** [cmTC_791ba/fast] Error 2
 
 
 

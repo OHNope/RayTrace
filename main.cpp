@@ -4,6 +4,7 @@
 #include "./material.hpp"
 #include "./sphere.hpp"
 
+#include "ncurses.h"
 #include "omp.h"
 #include <cfloat>
 #include <fstream>
@@ -126,17 +127,23 @@ hittableList random_scene() {
     return world;
 }
 int main() {
+    // Log screen
+    initscr();                         //初始化
+    box(stdscr, ACS_VLINE, ACS_HLINE); //画边框
+    curs_set(FALSE);                   /* 不显示光标 */
+    //
+    static omp_lock_t omp_lock;
+    omp_init_lock(&omp_lock);
     vec3 RED(1, 0.5, 0.5);
     double start = omp_get_wtime(); //获取起始时间
-    int numProcs = omp_get_num_procs();
+    int numProcs = omp_get_max_threads();
     // Image
-
-    /*const auto aspect_ratio = 16.0 / 9.0;
+    const auto aspect_ratio = 16.0 / 9.0;
     const int Image_Width = 1200;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);
-*/ const auto aspect_ratio = 2.0 / 1.0;
-    const int Image_Width = 200;
-    const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);
+    /*const auto aspect_ratio = 2.0 / 1.0;
+       const int Image_Width = 200;
+       const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);*/
     const int SPP = 100;
     const int max_depth = 8;
 
@@ -177,7 +184,7 @@ int main() {
     // Render
     int y;
     omp_set_dynamic(1);
-    omp_set_num_threads(50);
+    omp_set_num_threads(numProcs);
 #pragma omp parallel for private(y)
     for (y = Image_Height - 1; y >= 0; --y) {
         // std::cerr << "\rScanlines remaining: " << y << ' ' << std::flush;
@@ -196,8 +203,15 @@ int main() {
                 static_cast<int>(255.999 * pixel_color.y());
             Image[y * Image_Width + x][2] =
                 static_cast<int>(255.999 * pixel_color.z());
+            // ouput info
+            omp_set_lock(&omp_lock);
+            move(omp_get_thread_num() + 1, 2);
+            printw("Thread%d:Pixel(%d, %d)\0", omp_get_thread_num(), x, y);
+            refresh();
+            omp_unset_lock(&omp_lock);
         }
     }
+    endwin();
     printf("calculation done!\n");
     ofstream os("test.png");
     os << "P3\n" << Image_Width << " " << Image_Height << "\n255\n";
