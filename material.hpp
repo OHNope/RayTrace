@@ -8,6 +8,7 @@
 #include "./externalTools.hpp"
 #include "./hittable.hpp"
 #include "./ray.hpp"
+#include "./texture.hpp"
 
 class material {
 public:
@@ -17,15 +18,15 @@ public:
 
 class lambertain : public material {
 public:
-    lambertain(const vec3 &a) : albedo(a){};
+    lambertain(shared_ptr<texture> a) : albedo(a){};
     virtual bool scatter(const ray &r_in, const hit_record &rec,
                          vec3 &attenuation, ray &scattered) const override {
         vec3 target = rec.p + rec.normal + random_in_unit_sphere();
         scattered = ray(rec.p, target - rec.p, r_in.time());
-        attenuation = albedo;
+        attenuation = albedo->value(rec.u, rec.v, rec.p);
         return true;
     };
-    vec3 albedo;
+    shared_ptr<texture> albedo;
 };
 
 vec3 reflect(const vec3 &v, const vec3 &n) {

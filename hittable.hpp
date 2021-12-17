@@ -12,12 +12,13 @@
 #include <vector>
 using namespace std;
 
+class AABB;
 class BVHNode;
 class material;
 
 struct hit_record {
-    float t;
     vec3 p, normal;
+    float t, u, v;
     shared_ptr<material> mat_ptr;
     bool front_face;
 
@@ -31,17 +32,18 @@ class hittable {
 public:
     virtual bool hit(const ray &r, float t_min, float t_max,
                      hit_record &rec) const = 0;
-    virtual bool bounding_box(float t0, float t1, BVHNode &box) const = 0;
+    virtual bool bounding_box(float t0, float t1, AABB &box) const = 0;
 };
 
 class hittableList : public hittable {
 public:
     hittableList() = default;
+    hittableList(shared_ptr<hittable> object) { add(object); }
     void clear() { objects.clear(); }
     void add(shared_ptr<hittable> object) { objects.push_back(object); }
     virtual bool hit(const ray &r, float t_min, float t_max,
                      hit_record &rec) const override;
-    virtual bool bounding_box(float t0, float t1, BVHNode &box) const override;
+    virtual bool bounding_box(float t0, float t1, AABB &box) const override;
     vector<shared_ptr<hittable>> objects;
 };
 
@@ -58,10 +60,6 @@ bool hittableList::hit(const ray &r, float t_min, float t_max,
         }
     }
     return is_hit;
-}
-
-bool hittableList::bounding_box(float t0, float t1, BVHNode &box) const {
-    return false;
 }
 
 #endif // RAYTRACE_HITTABLE_HPP

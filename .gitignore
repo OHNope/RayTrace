@@ -12,3 +12,5 @@ cmake-build-debug
 cmake_install.cmake
 Makefile
 RayTrace
+RayTrace.cbp
+test.png

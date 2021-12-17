@@ -1,0 +1,8 @@
+//
+// Created by XBY on 2021/12/18.
+//
+
+#ifndef RAYTRACE_PERLINNOISE_HPP
+#define RAYTRACE_PERLINNOISE_HPP
+
+#endif // RAYTRACE_PERLINNOISE_HPP

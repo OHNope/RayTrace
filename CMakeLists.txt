@@ -45,4 +45,4 @@ if (OPENMP_FOUND)
     set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS} -O3 -lncurses")
 endif(OPENMP_FOUND)
 
-add_executable(RayTrace main.cpp vec3.hpp ray.hpp hittable.hpp sphere.hpp camera.hpp material.hpp externalTools.hpp BVH.hpp)
+add_executable(RayTrace main.cpp vec3.hpp ray.hpp hittable.hpp sphere.hpp camera.hpp material.hpp externalTools.hpp BVH.hpp texture.hpp customScene.hpp)

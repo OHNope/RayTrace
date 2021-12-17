@@ -5,6 +5,7 @@
 #ifndef RAYTRACE_SPHERE_HPP
 #define RAYTRACE_SPHERE_HPP
 
+#include "./BVH.hpp"
 #include "./hittable.hpp"
 #include "./ray.hpp"
 #include "./vec3.hpp"
@@ -18,13 +19,19 @@ public:
         : centre(cen), radius(r), mat_ptr(m){};
     virtual bool hit(const ray &r, float t_min, float t_max,
                      hit_record &rec) const override;
-    bool bounding_box(float t0, float t1, BVHNode &box) const override;
+    bool bounding_box(float t0, float t1, AABB &box) const override;
 
 private:
     vec3 centre;
     float radius;
     shared_ptr<material> mat_ptr;
 };
+
+bool sphere::bounding_box(float t0, float t1, AABB &box) const {
+    box = AABB(centre - vec3(radius, radius, radius),
+               centre + vec3(radius, radius, radius));
+    return true;
+}
 
 bool sphere::hit(const ray &r, float t_min, float t_max,
                  hit_record &rec) const {
@@ -64,7 +71,7 @@ public:
     // 与光线求交
     virtual bool hit(const ray &r, float t_min, float t_max,
                      hit_record &rec) const override;
-    virtual bool bounding_box(float t0, float t1, BVHNode &box) const override;
+    virtual bool bounding_box(float t0, float t1, AABB &box) const override;
 };
 
 bool Triangle::hit(const ray &r, float t_min, float t_max,
@@ -104,7 +111,7 @@ bool Triangle::hit(const ray &r, float t_min, float t_max,
     return true;
 }
 
-bool Triangle::bounding_box(float t0, float t1, BVHNode &box) const {
+bool Triangle::bounding_box(float t0, float t1, AABB &box) const {
     return false;
 }
 
@@ -128,7 +135,7 @@ public:
 
     virtual bool hit(const ray &r, float t_min, float t_max,
                      hit_record &rec) const override;
-    virtual bool bounding_box(float t0, float t1, BVHNode &box) const override;
+    virtual bool bounding_box(float t0, float t1, AABB &box) const override;
 
     vec3 center(double time) const;
 
@@ -177,8 +184,13 @@ bool moving_sphere::hit(const ray &r, float t_min, float t_max,
     return false;
 }
 
-bool moving_sphere::bounding_box(float t0, float t1, BVHNode &box) const {
-    return false;
+bool moving_sphere::bounding_box(float t0, float t1, AABB &output_box) const {
+    AABB box0(center(t0) - vec3(radius, radius, radius),
+              center(t0) + vec3(radius, radius, radius));
+    AABB box1(center(t1) - vec3(radius, radius, radius),
+              center(t1) + vec3(radius, radius, radius));
+    output_box = surrounding_box(box0, box1);
+    return true;
 }
 
 #endif // RAYTRACE_SPHERE_HPP
