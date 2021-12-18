@@ -16,9 +16,9 @@ public:
                          vec3 &attenuation, ray &scattered) const = 0;
 };
 
-class lambertain : public material {
+class lambertian : public material {
 public:
-    lambertain(shared_ptr<texture> a) : albedo(a){};
+    lambertian(shared_ptr<texture> a) : albedo(a){};
     virtual bool scatter(const ray &r_in, const hit_record &rec,
                          vec3 &attenuation, ray &scattered) const override {
         vec3 target = rec.p + rec.normal + random_in_unit_sphere();

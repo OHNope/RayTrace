@@ -12,7 +12,7 @@
 hittableList random_scene() {
     hittableList world;
 
-    auto ground_material = make_shared<lambertain>(color(0.5, 0.5, 0.5));
+    auto ground_material = make_shared<lambertian>(color(0.5, 0.5, 0.5));
     world.add(make_shared<sphere>(point3(0, -1000, 0), 1000, ground_material));
 
     for (int a = -11; a < 11; a++) {
@@ -27,7 +27,7 @@ hittableList random_scene() {
                 if (choose_mat < 0.8) {
                     // diffuse
                     auto albedo = color::random() * color::random();
-                    sphere_material = make_shared<lambertain>(albedo);
+                    sphere_material = make_shared<lambertian>(albedo);
                     world.add(
                         make_shared<sphere>(center, 0.2, sphere_material));
                 } else if (choose_mat < 0.95) {
@@ -50,7 +50,7 @@ hittableList random_scene() {
     auto material1 = make_shared<dielectric>(1.5);
     world.add(make_shared<sphere>(point3(0, 1, 0), 1.0, material1));
 
-    auto material2 = make_shared<lambertain>(color(0.4, 0.2, 0.1));
+    auto material2 = make_shared<lambertian>(color(0.4, 0.2, 0.1));
     world.add(make_shared<sphere>(point3(-4, 1, 0), 1.0, material2));
 
     auto material3 = make_shared<metal>(color(0.7, 0.6, 0.5), 0.0);
@@ -67,7 +67,7 @@ hittableList random_scene() {
         make_shared<constant_texture>(vec3(0.9, 0.9, 0.9)));
 
     world.add(make_shared<sphere>(vec3(0, -1000, 0), 1000,
-                                  make_shared<lambertain>(checker)));
+                                  make_shared<lambertian>(checker)));
 
     int i = 1;
     for (int a = -5; a < 5; a++) {
@@ -82,7 +82,7 @@ hittableList random_scene() {
                     world.add(make_shared<moving_sphere>(
                         center, center + vec3(0, random_double(0, .5), 0), 0.0,
                         1.0, 0.2,
-                        make_shared<lambertain>(
+                        make_shared<lambertian>(
                             make_shared<constant_texture>(albedo))));
                 } else if (choose_mat < 0.95) {
                     // metal
@@ -103,7 +103,7 @@ hittableList random_scene() {
         make_shared<sphere>(vec3(0, 1, 0), 1.0, make_shared<dielectric>(1.5)));
     world.add(make_shared<sphere>(
         vec3(-4, 1, 0), 1.0,
-        make_shared<lambertain>(
+        make_shared<lambertian>(
             make_shared<constant_texture>(vec3(0.4, 0.2, 0.1)))));
     world.add(make_shared<sphere>(
         vec3(4, 1, 0), 1.0, make_shared<metal>(vec3(0.7, 0.6, 0.5), 0.0)));
@@ -114,9 +114,9 @@ hittableList random_scene() {
 hittableList init() {
     vec3 RED(1, 0.5, 0.5);
     hittableList world;
-    auto material_ground = make_shared<lambertain>(
+    auto material_ground = make_shared<lambertian>(
         make_shared<constant_texture>(vec3(0.8, 0.8, 0.0)));
-    auto material_center = make_shared<lambertain>(
+    auto material_center = make_shared<lambertian>(
         make_shared<constant_texture>(vec3(0.1, 0.2, 0.5)));
     auto material_left = make_shared<dielectric>(1.5);
     auto material_right = make_shared<metal>(vec3(0.8, 0.6, 0.2), 0.0);
@@ -129,8 +129,20 @@ hittableList init() {
     world.add(make_shared<sphere>(vec3(1.0, 0.0, -1.0), 0.5, material_right));
     world.add(make_shared<Triangle>(
         vec3(-0.5, -0.5, 0), vec3(0.0, 0.5, 0), vec3(0.5, -0.5, 0),
-        make_shared<lambertain>(make_shared<constant_texture>(RED))));
+        make_shared<lambertian>(make_shared<constant_texture>(RED))));
     return world;
+}
+
+hittableList two_perlin_spheres() {
+    hittableList objects;
+
+    auto pertext = make_shared<noise_texture>();
+    objects.add(make_shared<sphere>(vec3(0, -1000, 0), 1000,
+                                    make_shared<lambertian>(pertext)));
+    objects.add(make_shared<sphere>(vec3(0, 2, 0), 2,
+                                    make_shared<lambertian>(pertext)));
+
+    return objects;
 }
 
 #endif // RAYTRACE_CUSTOMSCENE_HPP

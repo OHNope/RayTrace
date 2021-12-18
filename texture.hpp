@@ -5,6 +5,8 @@
 #ifndef RAYTRACE_TEXTURE_HPP
 #define RAYTRACE_TEXTURE_HPP
 
+#include "./perlinNoise.hpp"
+
 class texture {
 public:
     virtual vec3 value(double u, double v, const vec3 &p) const = 0;
@@ -40,6 +42,20 @@ public:
 public:
     shared_ptr<texture> odd;
     shared_ptr<texture> even;
+};
+
+class noise_texture : public texture {
+public:
+    noise_texture() = default;
+    noise_texture(double sc) : scale(sc) {}
+
+    virtual vec3 value(double u, double v, const vec3 &p) const {
+        return vec3(1, 1, 1) * noise.noise(scale * p);
+    }
+
+public:
+    perlin noise;
+    double scale;
 };
 
 #endif // RAYTRACE_TEXTURE_HPP

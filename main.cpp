@@ -54,7 +54,7 @@ int main() {
     const int SPP = 30;
     const int max_depth = 5;
     // World
-    auto world = random_scene();
+    auto world = two_perlin_spheres();
 
     // Camera
 
@@ -96,7 +96,7 @@ int main() {
             // ouput info
             omp_set_lock(&omp_lock);
             move(omp_get_thread_num() + 1, 2);
-            printw("Thread%d:Pixel(%d, %d) \0", omp_get_thread_num(), x, y);
+            printw("Thread%d:Pixel(%d, %d)\t\0", omp_get_thread_num(), x, y);
             refresh();
             omp_unset_lock(&omp_lock);
         }
