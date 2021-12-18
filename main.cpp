@@ -1,9 +1,6 @@
 #include "./BVH.hpp"
 #include "./camera.hpp"
 #include "./customScene.hpp"
-#include "./hittable.hpp"
-#include "./material.hpp"
-#include "./sphere.hpp"
 
 #include "ncurses.h"
 #include "omp.h"
