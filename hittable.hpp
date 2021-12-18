@@ -62,4 +62,25 @@ bool hittableList::hit(const ray &r, float t_min, float t_max,
     return is_hit;
 }
 
+class flip_face : public hittable {
+public:
+    flip_face(shared_ptr<hittable> p) : ptr(p) {}
+
+    virtual bool hit(const ray &r, float t_min, float t_max,
+                     hit_record &rec) const {
+        if (!ptr->hit(r, t_min, t_max, rec))
+            return false;
+
+        rec.front_face = !rec.front_face;
+        return true;
+    }
+
+    virtual bool bounding_box(float t0, float t1, AABB &output_box) const {
+        return ptr->bounding_box(t0, t1, output_box);
+    }
+
+public:
+    shared_ptr<hittable> ptr; //指向几何物体
+}
+
 #endif // RAYTRACE_HITTABLE_HPP
