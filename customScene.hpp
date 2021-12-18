@@ -136,7 +136,7 @@ hittableList init() {
 hittableList two_perlin_spheres() {
     hittableList objects;
 
-    auto pertext = make_shared<noise_texture>();
+    auto pertext = make_shared<noise_texture>(4);
     objects.add(make_shared<sphere>(vec3(0, -1000, 0), 1000,
                                     make_shared<lambertian>(pertext)));
     objects.add(make_shared<sphere>(vec3(0, 2, 0), 2,

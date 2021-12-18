@@ -50,7 +50,7 @@ public:
     noise_texture(double sc) : scale(sc) {}
 
     virtual vec3 value(double u, double v, const vec3 &p) const {
-        return vec3(1, 1, 1) * noise.noise(scale * p);
+        return vec3(1, 1, 1) * 0.5 * (1.0 + noise.noise(scale * p));
     }
 
 public:
