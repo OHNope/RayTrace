@@ -1,0 +1,8 @@
+//
+// Created by XBY on 2021/12/18.
+//
+
+#ifndef RAYTRACE_TRIANGLE_HPP
+#define RAYTRACE_TRIANGLE_HPP
+
+#endif // RAYTRACE_TRIANGLE_HPP

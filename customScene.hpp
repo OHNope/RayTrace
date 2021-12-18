@@ -8,7 +8,9 @@
 #include "./material.hpp"
 #include "./sphere.hpp"
 #define STB_IMAGE_IMPLEMENTATION
+
 #include "./ExternalSupport/stb_image.h"
+#include "./rect.hpp"
 
 /*
 hittableList random_scene() {
@@ -156,6 +158,43 @@ hittableList earth() {
     auto globe = make_shared<sphere>(vec3(0, 0, 0), 2, earth_surface);
 
     return hittableList(globe);
+}
+
+hittableList simple_light() {
+    hittableList objects;
+
+    auto pertext = make_shared<noise_texture>(4);
+    objects.add(make_shared<sphere>(vec3(0, -1000, 0), 1000,
+                                    make_shared<lambertian>(pertext)));
+    objects.add(make_shared<sphere>(vec3(0, 2, 0), 2,
+                                    make_shared<lambertian>(pertext)));
+
+    auto difflight = make_shared<diffuse_light>(
+        make_shared<constant_texture>(vec3(4, 4, 4)));
+    objects.add(make_shared<sphere>(vec3(0, 7, 0), 2, difflight));
+    objects.add(make_shared<xy_rect>(3, 5, 1, 3, -2, difflight));
+
+    return objects;
+}
+
+hittableList cornell_box() {
+    hittableList objects;
+
+    auto red = make_shared<lambertian>(
+        make_shared<constant_texture>(vec3(0.65, 0.05, 0.05)));
+    auto white = make_shared<lambertian>(
+        make_shared<constant_texture>(vec3(0.73, 0.73, 0.73)));
+    auto green = make_shared<lambertian>(
+        make_shared<constant_texture>(vec3(0.12, 0.45, 0.15)));
+    auto light = make_shared<diffuse_light>(
+        make_shared<constant_texture>(vec3(15, 15, 15)));
+    objects.add(make_shared<yz_rect>(0, 555, 0, 555, 555, green));
+    objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));
+    objects.add(make_shared<xz_rect>(213, 343, 227, 332, 554, light));
+    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));
+    objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));
+    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));
+    return objects;
 }
 
 #endif // RAYTRACE_CUSTOMSCENE_HPP

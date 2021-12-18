@@ -11,24 +11,23 @@
 
 using namespace std;
 
-color ray_color(const ray &r, const hittable &world, int depth) {
+color ray_color(const ray &r, const vec3 &background, const hittable &world,
+                int depth) {
     hit_record rec;
 
     // If we've exceeded the ray bounce limit, no more light is gathered.
     if (depth <= 0)
         return color(0, 0, 0);
+    if (!world.hit(r, 0.001, FLT_MAX, rec))
+        return background;
+    ray scattered;
+    vec3 attenuation;
+    vec3 emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);
+    if (!rec.mat_ptr->scatter(r, rec, attenuation, scattered))
+        return emitted;
 
-    if (world.hit(r, 0.001, FLT_MAX, rec)) {
-        ray scattered;
-        color attenuation;
-        if (rec.mat_ptr->scatter(r, rec, attenuation, scattered))
-            return attenuation * ray_color(scattered, world, depth - 1);
-        return color(0, 0, 0);
-    }
-
-    vec3 unit_direction = unit_vector(r.direction());
-    auto t = 0.5 * (unit_direction.y() + 1.0);
-    return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);
+    return emitted +
+           attenuation * ray_color(scattered, background, world, depth - 1);
 }
 
 int main() {
@@ -49,21 +48,21 @@ int main() {
     const int Image_Width = 400;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);*/
     const int SPP = 30;
-    const int max_depth = 3;
+    const int max_depth = 5;
     // World
-    auto world = earth();
-
+    auto world = cornell_box();
+    const vec3 background(0, 0, 0);
     // Camera
 
-    vec3 lookfrom(13, 2, 3);
-    vec3 lookat(0, 0, 0);
+    vec3 lookfrom(278, 278, -800);
+    vec3 lookat(278, 278, 0);
     vec3 vup(0, 1, 0);
     auto dist_to_focus = 10.0;
     auto aperture = 0.0;
+    auto vfov = 40.0;
 
-    camera cam(lookfrom, lookat, vup, 20, aspect_ratio, aperture, dist_to_focus,
-               0.0, 1.0);
-
+    camera cam(lookfrom, lookat, vup, vfov, aspect_ratio, aperture,
+               dist_to_focus, 0.0, 1.0);
     // construct image source
     vector<vector<int>> Image(Image_Height * Image_Width);
     for (int i = 0; i < Image.size(); i++)
@@ -81,7 +80,7 @@ int main() {
                 auto u = (x + random_double()) / (Image_Width - 1);
                 auto v = (y + random_double()) / (Image_Height - 1);
                 ray r = cam.get_ray(u, v);
-                pixel_color += ray_color(r, world, max_depth);
+                pixel_color += ray_color(r, background, world, max_depth);
             }
             pixel_color /= SPP;
             Image[y * Image_Width + x][0] =
