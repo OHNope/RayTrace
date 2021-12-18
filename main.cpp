@@ -49,9 +49,9 @@ int main() {
     const int Image_Width = 400;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);*/
     const int SPP = 30;
-    const int max_depth = 5;
+    const int max_depth = 3;
     // World
-    auto world = two_perlin_spheres();
+    auto world = earth();
 
     // Camera
 
@@ -70,8 +70,8 @@ int main() {
         Image[i] = move(vector<int>(3));
     // Render
     int y;
-    omp_set_dynamic(1);
-    omp_set_num_threads(10);
+    omp_set_dynamic(numProcs);
+    omp_set_num_threads(numProcs);
 #pragma omp parallel for private(y)
     for (y = Image_Height - 1; y >= 0; --y) {
         // std::cerr << "\rScanlines remaining: " << y << ' ' << std::flush;
@@ -93,7 +93,7 @@ int main() {
             // ouput info
             omp_set_lock(&omp_lock);
             move(omp_get_thread_num() + 1, 2);
-            printw("Thread%d:Pixel(%d, %d)\t\0", omp_get_thread_num(), x, y);
+            printw("Thread%d:Pixel(%d, %d)  \t\0", omp_get_thread_num(), x, y);
             refresh();
             omp_unset_lock(&omp_lock);
         }

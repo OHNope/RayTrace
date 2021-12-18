@@ -7,6 +7,8 @@
 
 #include "./material.hpp"
 #include "./sphere.hpp"
+#define STB_IMAGE_IMPLEMENTATION
+#include "./ExternalSupport/stb_image.h"
 
 /*
 hittableList random_scene() {
@@ -143,6 +145,17 @@ hittableList two_perlin_spheres() {
                                     make_shared<lambertian>(pertext)));
 
     return objects;
+}
+
+hittableList earth() {
+    int nx, ny, nn;
+    unsigned char *texture_data = stbi_load("./earth.jpg", &nx, &ny, &nn, 0);
+
+    auto earth_surface = make_shared<lambertian>(
+        make_shared<image_texture>(texture_data, nx, ny));
+    auto globe = make_shared<sphere>(vec3(0, 0, 0), 2, earth_surface);
+
+    return hittableList(globe);
 }
 
 #endif // RAYTRACE_CUSTOMSCENE_HPP
