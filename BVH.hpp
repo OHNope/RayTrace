@@ -164,4 +164,11 @@ bool hittableList::bounding_box(float t0, float t1, AABB &output_box) const {
 
     return true;
 }
+
+bool translate::bounding_box(float t0, float t1, AABB &output_box) const {
+    if (!ptr->bounding_box(t0, t1, output_box))
+        return false;
+    output_box = AABB(output_box.min() + offset, output_box.max() + offset);
+    return true;
+}
 #endif // RAYTRACE_BVH_HPP

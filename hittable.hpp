@@ -81,6 +81,51 @@ public:
 
 public:
     shared_ptr<hittable> ptr; //指向几何物体
+};
+
+class translate : public hittable {
+public:
+    translate(shared_ptr<hittable> p, const vec3 &displacement)
+        : ptr(p), offset(displacement) {}
+
+    virtual bool hit(const ray &r, float t_min, float t_max,
+                     hit_record &rec) const;
+    virtual bool bounding_box(float t0, float t1, AABB &output_box) const;
+
+public:
+    shared_ptr<hittable> ptr;
+    vec3 offset;
+};
+
+bool translate::hit(const ray &r, float t_min, float t_max,
+                    hit_record &rec) const {
+    ray moved_r(r.origin() - offset, r.direction(), r.time());
+    if (!ptr->hit(moved_r, t_min, t_max, rec))
+        return false;
+
+    rec.p += offset;
+    rec.set_face_normal(moved_r, rec.normal);
+
+    return true;
 }
+
+class rotate_y : public hittable {
+public:
+    rotate_y(shared_ptr<hittable> p, double angle);
+
+    virtual bool hit(const ray &r, float t_min, float t_max,
+                     hit_record &rec) const;
+    virtual bool bounding_box(float t0, float t1, AABB &output_box) const {
+        output_box = bbox;
+        return hasbox;
+    }
+
+public:
+    shared_ptr<hittable> ptr;
+    double sin_theta;
+    double cos_theta;
+    bool hasbox;
+    AABB bbox;
+};
 
 #endif // RAYTRACE_HITTABLE_HPP
