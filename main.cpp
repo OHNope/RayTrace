@@ -19,9 +19,6 @@ color ray_color(const ray &r, const vec3 &background, const hittable &world,
     if (depth <= 0)
         return color(0, 0, 0);
     if (!world.hit(r, 0.001, FLT_MAX, rec)) {
-        vec3 unit_direction = unit_vector(r.direction());
-        auto t = 0.5 * (unit_direction.y() + 1.0);
-        return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);
         return background;
     }
     ray scattered;
@@ -78,15 +75,14 @@ int main() {
     /*const auto aspect_ratio = 2.0 / 1.0;
     const int Image_Width = 400;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);*/
-    const int SPP = 50;
-    const int max_depth = 5;
+    const int SPP = 1000;
+    const int max_depth = 10;
     // World
-    auto world = cornell_box();
+    auto world = final_scene();
     const vec3 background(0, 0, 0);
     // Camera
-
-    vec3 lookfrom(278, 278, -800);
-    vec3 lookat(278, 278, 0);
+    vec3 lookfrom = point3(478, 278, -600);
+    vec3 lookat = point3(278, 278, 0);
     vec3 vup(0, 1, 0);
     auto dist_to_focus = 10.0;
     auto aperture = 0.0;

@@ -7,6 +7,7 @@
 
 #include "./AABB.hpp"
 #include "./ray.hpp"
+#include "./texture.hpp"
 #include "./vec3.hpp"
 #include <cfloat>
 #include <memory>
@@ -14,6 +15,7 @@
 using namespace std;
 
 class material;
+class isotropic;
 
 struct hit_record {
     vec3 p, normal;
