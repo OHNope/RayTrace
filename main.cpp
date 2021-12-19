@@ -81,7 +81,7 @@ int main() {
     const int SPP = 50;
     const int max_depth = 5;
     // World
-    auto world = mutiply_angle();
+    auto world = cornell_box();
     const vec3 background(0, 0, 0);
     // Camera
 
@@ -92,10 +92,8 @@ int main() {
     auto aperture = 0.0;
     auto vfov = 40.0;
 
-    // camera cam(lookfrom, lookat, vup, vfov, aspect_ratio, aperture,
-    // dist_to_focus, 0.0, 1.0);
-    camera cam(point3(-2, 2, 1), point3(0, 0, -1), vec3(0, 1, 0), 20,
-               aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
+    camera cam(lookfrom, lookat, vup, vfov, aspect_ratio, aperture,
+               dist_to_focus, 0.0, 1.0);
     // construct image source
     vector<vector<int>> Image(Image_Height * Image_Width);
     for (int i = 0; i < Image.size(); i++)
