@@ -16,6 +16,8 @@ class constant_texture : public texture {
 public:
     constant_texture() {}
     constant_texture(vec3 c) : color(c) {}
+    constant_texture(double red, double green, double blue)
+        : color(vec3(red, green, blue)) {}
 
     virtual vec3 value(double u, double v, const vec3 &p) const {
         return color;

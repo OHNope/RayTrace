@@ -16,15 +16,6 @@ static double get_random() { //[0,1)
     return dist(mt);
 }
 
-vec3 random_in_unit_sphere() {
-    vec3 p;
-    do
-        p = 2.0 * vec3(get_random(), get_random(), get_random()) -
-            vec3(1, 1, 1);
-    while (p.length_squared() >= 1.0);
-    return p;
-};
-
 inline double random_double() {
     // Returns a random real in [0,1).
     return rand() / (RAND_MAX + 1.0);
@@ -42,6 +33,16 @@ inline double degrees_to_radians(double degrees) {
 inline double random_double(double min, double max) {
     // Returns a random real in [min,max).
     return min + (max - min) * random_double();
+}
+
+inline vec3 random_cosine_direction() {
+    double r1 = random_double();
+    double r2 = random_double();
+    double z = sqrt(1 - r2);
+    double φ = 2 * M_PI * r1;
+    double x = cos(φ) * 2 * sqrt(r2);
+    double y = sin(φ) * 2 * sqrt(r2);
+    return vec3(x, y, z);
 }
 
 #endif // RAYTRACE_EXTERNALTOOLS_HPP

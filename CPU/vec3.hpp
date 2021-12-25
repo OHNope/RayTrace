@@ -48,6 +48,11 @@ public:
     double length_squared() const {
         return e[0] * e[0] + e[1] * e[1] + e[2] * e[2];
     }
+    bool near_zero() const {
+        // Return true if the vector is close to zero in all dimensions.
+        const auto s = 1e-8;
+        return (fabs(e[0]) < s) && (fabs(e[1]) < s) && (fabs(e[2]) < s);
+    }
     inline static vec3 random() {
         return vec3(random_double(1, 0), random_double(1, 0),
                     random_double(1, 0));
@@ -104,6 +109,19 @@ vec3 random_in_unit_disk() {
             continue;
         return p;
     }
+}
+
+vec3 random_in_unit_sphere() {
+    while (true) {
+        auto p = vec3::random(-1, 1);
+        if (p.length_squared() >= 1)
+            continue;
+        return p;
+    }
+};
+
+inline vec3 random_unit_vector() {
+    return unit_vector(random_in_unit_sphere());
 }
 
 using point3 = vec3;

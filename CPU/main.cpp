@@ -1,6 +1,7 @@
 #include "./BVH.hpp"
 #include "./camera.hpp"
 #include "./customScene.hpp"
+#include "PDF.hpp"
 
 #include "ncurses.h"
 #include "omp.h"
@@ -18,16 +19,25 @@ color ray_color(const ray &r, const vec3 &background, const hittable &world,
     // If we've exceeded the ray bounce limit, no more light is gathered.
     if (depth <= 0)
         return color(0, 0, 0);
-    if (!world.hit(r, 0.001, FLT_MAX, rec)) {
+
+    // If the ray hits nothing, return the background color.
+    if (!world.hit(r, 0.001, FLT_MAX, rec))
         return background;
-    }
+
     ray scattered;
-    vec3 attenuation;
-    vec3 emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);
-    if (!rec.mat_ptr->scatter(r, rec, attenuation, scattered))
+    color attenuation;
+    color emitted = rec.mat_ptr->emitted(r, rec, rec.u, rec.v, rec.p);
+    double pdf_val;
+    color albedo;
+    if (!rec.mat_ptr->scatter(r, rec, albedo, scattered, pdf_val))
         return emitted;
-    return emitted +
-           attenuation * ray_color(scattered, background, world, depth - 1);
+    cosine_pdf p(rec.normal);
+    scattered = ray(rec.p, p.generate(), r.time());
+    pdf_val = p.value(scattered.direction());
+
+    return emitted + albedo * rec.mat_ptr->scattering_pdf(r, rec, scattered) *
+                         ray_color(scattered, background, world, depth - 1) /
+                         pdf_val;
 }
 
 void write_color(vector<vector<int>> &out, color pixel_color, int position,
@@ -69,27 +79,26 @@ int main() {
     double start = omp_get_wtime(); //获取起始时间
     int numProcs = omp_get_max_threads();
     // Image
-    const auto aspect_ratio = 2 / 1;
-    const int Image_Width = 800;
-    const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);
-    /*const auto aspect_ratio = 2.0 / 1.0;
+    const auto aspect_ratio = 1.0 / 1.0;
     const int Image_Width = 400;
-    const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);*/
-    const int SPP = 200;
+    const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);
+    const int SPP = 3000;
     const int max_depth = 10;
     // World
-    auto world = final_scene();
+    auto world = test_cornell_box();
     const vec3 background(0, 0, 0);
     // Camera
-    vec3 lookfrom = point3(478, 278, -600);
-    vec3 lookat = point3(278, 278, 0);
+    point3 lookfrom(278, 278, -800);
+    point3 lookat(278, 278, 0);
     vec3 vup(0, 1, 0);
     auto dist_to_focus = 10.0;
     auto aperture = 0.0;
     auto vfov = 40.0;
+    auto time0 = 0.0;
+    auto time1 = 1.0;
 
     camera cam(lookfrom, lookat, vup, vfov, aspect_ratio, aperture,
-               dist_to_focus, 0.0, 1.0);
+               dist_to_focus, time0, time1);
     // construct image source
     vector<vector<int>> Image(Image_Height * Image_Width);
     for (int i = 0; i < Image.size(); i++)
@@ -113,7 +122,8 @@ int main() {
             // ouput info
             omp_set_lock(&omp_lock);
             move(omp_get_thread_num() + 1, 2);
-            printw("Thread%d:Pixel(%d, %d)  \t\0", omp_get_thread_num(), x, y);
+            printw("Thread%d:Pixel(%04d, %04d)\t\0", omp_get_thread_num(), x,
+                   y);
             refresh();
             omp_unset_lock(&omp_lock);
         }
