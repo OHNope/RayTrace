@@ -31,7 +31,8 @@ color ray_color(const ray &r, const vec3 &background, const hittable &world,
            attenuation * ray_color(scattered, background, world, depth - 1);
 }
 
-void write_color(std::ostream &out, color pixel_color, int samples_per_pixel) {
+void write_color(vector<vector<int>> &out, color pixel_color, int position,
+                 int SPP) {
     auto r = pixel_color.x();
     auto g = pixel_color.y();
     auto b = pixel_color.z();
@@ -47,15 +48,15 @@ void write_color(std::ostream &out, color pixel_color, int samples_per_pixel) {
 
     // Divide the color by the number of samples and gamma-correct for
     // gamma=2.0.
-    auto scale = 1.0 / samples_per_pixel;
+    auto scale = 1.0 / SPP;
     r = sqrt(scale * r);
     g = sqrt(scale * g);
     b = sqrt(scale * b);
 
     // Write the translated [0,255] value of each color component.
-    out << static_cast<int>(256 * clamp(r, 0.0, 0.999)) << ' '
-        << static_cast<int>(256 * clamp(g, 0.0, 0.999)) << ' '
-        << static_cast<int>(256 * clamp(b, 0.0, 0.999)) << '\n';
+    out[position][0] = static_cast<int>(256 * clamp(r, 0.0, 0.999));
+    out[position][1] = static_cast<int>(256 * clamp(g, 0.0, 0.999));
+    out[position][2] = static_cast<int>(256 * clamp(b, 0.0, 0.999));
 }
 
 int main() {
@@ -70,15 +71,15 @@ int main() {
     int numProcs = omp_get_max_threads();
     // Image
     const auto aspect_ratio = 2 / 1;
-    const int Image_Width = 400;
+    const int Image_Width = 200;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);
     /*const auto aspect_ratio = 2.0 / 1.0;
     const int Image_Width = 400;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);*/
-    const int SPP = 1000;
+    const int SPP = 100;
     const int max_depth = 10;
     // World
-    auto world = final_scene();
+    auto world = earth();
     const vec3 background(0, 0, 0);
     // Camera
     vec3 lookfrom = point3(478, 278, -600);
@@ -109,13 +110,7 @@ int main() {
                 ray r = cam.get_ray(u, v);
                 pixel_color += ray_color(r, background, world, max_depth);
             }
-            pixel_color /= SPP;
-            Image[y * Image_Width + x][0] =
-                static_cast<int>(255.999 * pixel_color.x());
-            Image[y * Image_Width + x][1] =
-                static_cast<int>(255.999 * pixel_color.y());
-            Image[y * Image_Width + x][2] =
-                static_cast<int>(255.999 * pixel_color.z());
+            write_color(Image, pixel_color, y * Image_Width + x, SPP);
             // ouput info
             omp_set_lock(&omp_lock);
             move(omp_get_thread_num() + 1, 2);

@@ -9,9 +9,9 @@
 #include "./sphere.hpp"
 #define STB_IMAGE_IMPLEMENTATION
 
-#include "./ExternalSupport/stb_image.h"
 #include "./box.hpp"
 #include "./constant_medium.hpp"
+#include "./lib/stb_image.h"
 #include "./rect.hpp"
 
 /*
