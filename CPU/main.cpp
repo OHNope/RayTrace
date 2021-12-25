@@ -26,7 +26,6 @@ color ray_color(const ray &r, const vec3 &background, const hittable &world,
     vec3 emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);
     if (!rec.mat_ptr->scatter(r, rec, attenuation, scattered))
         return emitted;
-
     return emitted +
            attenuation * ray_color(scattered, background, world, depth - 1);
 }
@@ -71,15 +70,15 @@ int main() {
     int numProcs = omp_get_max_threads();
     // Image
     const auto aspect_ratio = 2 / 1;
-    const int Image_Width = 200;
+    const int Image_Width = 800;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);
     /*const auto aspect_ratio = 2.0 / 1.0;
     const int Image_Width = 400;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);*/
-    const int SPP = 100;
+    const int SPP = 200;
     const int max_depth = 10;
     // World
-    auto world = earth();
+    auto world = final_scene();
     const vec3 background(0, 0, 0);
     // Camera
     vec3 lookfrom = point3(478, 278, -600);

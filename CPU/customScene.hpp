@@ -113,8 +113,9 @@ hittableList random_scene() {
             make_shared<constant_texture>(vec3(0.4, 0.2, 0.1)))));
     world.add(make_shared<sphere>(
         vec3(4, 1, 0), 1.0, make_shared<metal>(vec3(0.7, 0.6, 0.5), 0.0)));
-
-    return static_cast<hittableList>(make_shared<BVHNode>(world, 0, 1));
+    auto test = static_cast<hittableList>(make_shared<BVHNode>(world, 0, 1));
+    printf("BVH Done\n");
+    return test;
 }
 
 hittableList init() {
