@@ -62,6 +62,30 @@ public:
                 AABB(vec3(k - 0.0001, a0, b0), vec3(k + 0.0001, a1, b1));
         return true;
     }
+    virtual double pdf_value(const point3 &origin,
+                             const vec3 &v) const override {
+        if constexpr (N == XZ) {
+            hit_record rec;
+            if (!this->hit(ray(origin, v), 0.001, FLT_MAX, rec))
+                return 0;
+
+            auto area = (a1 - a0) * (b1 - b0);
+            auto distance_squared = rec.t * rec.t * v.length_squared();
+            auto cosine = fabs(dot(v, rec.normal) / v.length());
+
+            return distance_squared / (cosine * area);
+        } else
+            return this->hittable::pdf_value(origin, v);
+    }
+
+    virtual vec3 random(const point3 &origin) const override {
+        if constexpr (N == XZ) {
+            auto random_point =
+                point3(random_double(a0, a1), k, random_double(b0, b1));
+            return random_point - origin;
+        } else
+            return this->hittable::random(origin);
+    }
 
 public:
     shared_ptr<material> mp;
