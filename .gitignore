@@ -14,3 +14,7 @@ CPU/Makefile
 CPU/RayTrace
 CPU/RayTrace.cbp
 CPU/test.txt
+CPU/Testing
+CPU/test.png
+CPU/.DS_Store
+.DS_Store
