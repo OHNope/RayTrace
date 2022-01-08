@@ -175,7 +175,7 @@ hittableList simple_light() {
     auto difflight = make_shared<diffuse_light>(
         make_shared<constant_texture>(vec3(4, 4, 4)));
     objects.add(make_shared<sphere>(vec3(0, 7, 0), 2, difflight));
-    objects.add(make_shared<xy_rect>(3, 5, 1, 3, -2, difflight));
+    objects.add(make_shared<Rect<XY>>(3, 5, 1, 3, -2, difflight));
 
     return objects;
 }
@@ -191,12 +191,12 @@ hittableList cornell_box() {
         make_shared<constant_texture>(vec3(0.12, 0.45, 0.15)));
     auto light = make_shared<diffuse_light>(
         make_shared<constant_texture>(vec3(15, 15, 15)));
-    objects.add(make_shared<yz_rect>(0, 555, 0, 555, 555, green));
-    objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));
-    objects.add(make_shared<xz_rect>(213, 343, 227, 332, 554, light));
-    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));
-    objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));
-    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));
+    objects.add(make_shared<Rect<YZ>>(0, 555, 0, 555, 555, green));
+    objects.add(make_shared<Rect<YZ>>(0, 555, 0, 555, 0, red));
+    objects.add(make_shared<Rect<XZ>>(213, 343, 227, 332, 554, light));
+    objects.add(make_shared<Rect<XZ>>(0, 555, 0, 555, 0, white));
+    objects.add(make_shared<Rect<XY>>(0, 555, 0, 555, 555, white));
+    objects.add(make_shared<Rect<XZ>>(0, 555, 0, 555, 555, white));
 
     shared_ptr<hittable> box1 =
         make_shared<box>(vec3(0, 0, 0), vec3(165, 330, 165), white);
@@ -236,24 +236,18 @@ hittableList mutiply_angle() {
 hittableList cornell_smoke() {
     hittableList objects;
 
-    auto red = make_shared<lambertian>(
-        make_shared<constant_texture>(vec3(0.65, 0.05, 0.05)));
-    auto white = make_shared<lambertian>(
-        make_shared<constant_texture>(vec3(0.73, 0.73, 0.73)));
-    auto green = make_shared<lambertian>(
-        make_shared<constant_texture>(vec3(0.12, 0.45, 0.15)));
-    auto light = make_shared<diffuse_light>(
-        make_shared<constant_texture>(vec3(7, 7, 7)));
+    auto red = make_shared<lambertian>(color(.65, .05, .05));
+    auto white = make_shared<lambertian>(color(.73, .73, .73));
+    auto green = make_shared<lambertian>(color(.12, .45, .15));
+    auto light = make_shared<diffuse_light>(color(15, 15, 15));
 
+    objects.add(make_shared<Rect<YZ>>(0, 555, 0, 555, 555, green));
+    objects.add(make_shared<Rect<YZ>>(0, 555, 0, 555, 0, red));
     objects.add(make_shared<flip_face>(
-        make_shared<yz_rect>(0, 555, 0, 555, 555, green)));
-    objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));
-    objects.add(make_shared<xz_rect>(113, 443, 127, 432, 554, light));
-    objects.add(make_shared<flip_face>(
-        make_shared<xz_rect>(0, 555, 0, 555, 555, white)));
-    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));
-    objects.add(make_shared<flip_face>(
-        make_shared<xy_rect>(0, 555, 0, 555, 555, white)));
+        make_shared<Rect<XZ>>(213, 343, 227, 332, 554, light)));
+    objects.add(make_shared<Rect<XZ>>(0, 555, 0, 555, 555, white));
+    objects.add(make_shared<Rect<XZ>>(0, 555, 0, 555, 0, white));
+    objects.add(make_shared<Rect<XY>>(0, 555, 0, 555, 555, white));
 
     shared_ptr<hittable> box1 =
         make_shared<box>(vec3(0, 0, 0), vec3(165, 330, 165), white);
@@ -300,7 +294,7 @@ hittableList final_scene() {
 
     auto light = make_shared<diffuse_light>(
         make_shared<constant_texture>(vec3(7, 7, 7)));
-    objects.add(make_shared<xz_rect>(123, 423, 147, 412, 554, light));
+    objects.add(make_shared<Rect<XZ>>(123, 423, 147, 412, 554, light));
 
     auto center1 = vec3(400, 400, 200);
     auto center2 = center1 + vec3(30, 0, 0);
@@ -356,13 +350,13 @@ hittableList test_cornell_box() {
     auto green = make_shared<lambertian>(color(.12, .45, .15));
     auto light = make_shared<diffuse_light>(color(15, 15, 15));
 
-    objects.add(make_shared<yz_rect>(0, 555, 0, 555, 555, green));
-    objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));
+    objects.add(make_shared<Rect<YZ>>(0, 555, 0, 555, 555, green));
+    objects.add(make_shared<Rect<YZ>>(0, 555, 0, 555, 0, red));
     objects.add(make_shared<flip_face>(
-        make_shared<xz_rect>(213, 343, 227, 332, 554, light)));
-    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));
-    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));
-    objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));
+        make_shared<Rect<XZ>>(213, 343, 227, 332, 554, light)));
+    objects.add(make_shared<Rect<XZ>>(0, 555, 0, 555, 555, white));
+    objects.add(make_shared<Rect<XZ>>(0, 555, 0, 555, 0, white));
+    objects.add(make_shared<Rect<XY>>(0, 555, 0, 555, 555, white));
 
     shared_ptr<hittable> box1 =
         make_shared<box>(point3(0, 0, 0), point3(165, 330, 165), white);

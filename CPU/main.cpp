@@ -82,10 +82,10 @@ int main() {
     const auto aspect_ratio = 1.0 / 1.0;
     const int Image_Width = 400;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);
-    const int SPP = 3000;
+    const int SPP = 500;
     const int max_depth = 10;
     // World
-    auto world = test_cornell_box();
+    auto world = cornell_smoke();
     const vec3 background(0, 0, 0);
     // Camera
     point3 lookfrom(278, 278, -800);
