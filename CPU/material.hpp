@@ -45,7 +45,7 @@ public:
         return true;
     };
     double scattering_pdf(const ray &r_in, const hit_record &rec,
-                          const ray &scattered) const {
+                          const ray &scattered) const override {
         auto cosine = dot(rec.normal, unit_vector(scattered.direction()));
         return cosine < 0 ? 0 : cosine / M_PI;
     }

@@ -13,7 +13,8 @@ public:
     Rect(double _a0, double _a1, double _b0, double _b1, double _k,
          shared_ptr<material> mat)
         : a0(_a0), a1(_a1), b0(_b0), b1(_b1), k(_k), mp(mat){};
-    virtual bool hit(const ray &r, float t0, float t1, hit_record &rec) const {
+    virtual bool hit(const ray &r, float t0, float t1,
+                     hit_record &rec) const override {
         double origin_x = r.origin().x(), origin_y = r.origin().y(),
                origin_z = r.origin().z();
         double direct_x = r.direction().x(), direct_y = r.direction().y(),
@@ -50,7 +51,8 @@ public:
         return true;
     };
 
-    virtual bool bounding_box(float t0, float t1, AABB &output_box) const {
+    virtual bool bounding_box(float t0, float t1,
+                              AABB &output_box) const override {
         if constexpr (N == XY)
             output_box =
                 AABB(vec3(a0, b0, k - 0.0001), vec3(a1, b1, k + 0.0001));

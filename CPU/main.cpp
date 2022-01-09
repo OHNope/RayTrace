@@ -84,12 +84,12 @@ int main() {
     int numProcs = omp_get_max_threads();
     // Image
     const auto aspect_ratio = 1.0 / 1.0;
-    const int Image_Width = 500;
+    const int Image_Width = 200;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);
-    const int SPP = 1000;
+    const int SPP = 200;
     const int max_depth = 10;
     // World
-    auto world = test_cornell_box();
+    auto world = cornell_box();
     shared_ptr<hittable> lights =
         make_shared<Rect<XZ>>(213, 343, 227, 332, 554, shared_ptr<material>());
     const vec3 background(0, 0, 0);

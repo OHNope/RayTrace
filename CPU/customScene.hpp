@@ -180,38 +180,6 @@ hittableList simple_light() {
     return objects;
 }
 
-hittableList cornell_box() {
-    hittableList objects;
-
-    auto red = make_shared<lambertian>(
-        make_shared<constant_texture>(vec3(0.65, 0.05, 0.05)));
-    auto white = make_shared<lambertian>(
-        make_shared<constant_texture>(vec3(0.73, 0.73, 0.73)));
-    auto green = make_shared<lambertian>(
-        make_shared<constant_texture>(vec3(0.12, 0.45, 0.15)));
-    auto light = make_shared<diffuse_light>(
-        make_shared<constant_texture>(vec3(15, 15, 15)));
-    objects.add(make_shared<Rect<YZ>>(0, 555, 0, 555, 555, green));
-    objects.add(make_shared<Rect<YZ>>(0, 555, 0, 555, 0, red));
-    objects.add(make_shared<Rect<XZ>>(213, 343, 227, 332, 554, light));
-    objects.add(make_shared<Rect<XZ>>(0, 555, 0, 555, 0, white));
-    objects.add(make_shared<Rect<XY>>(0, 555, 0, 555, 555, white));
-    objects.add(make_shared<Rect<XZ>>(0, 555, 0, 555, 555, white));
-
-    shared_ptr<hittable> box1 =
-        make_shared<box>(vec3(0, 0, 0), vec3(165, 330, 165), white);
-    box1 = make_shared<rotate_y>(box1, 15);
-    box1 = make_shared<translate>(box1, vec3(265, 0, 295));
-    objects.add(box1);
-
-    shared_ptr<hittable> box2 =
-        make_shared<box>(vec3(0, 0, 0), vec3(165, 165, 165), white);
-    box2 = make_shared<rotate_y>(box2, -18);
-    box2 = make_shared<translate>(box2, vec3(130, 0, 65));
-    objects.add(box2);
-    return objects;
-}
-
 hittableList mutiply_angle() {
     hittableList world;
 
@@ -342,7 +310,7 @@ hittableList final_scene() {
     return objects;
 }
 
-hittableList test_cornell_box() {
+hittableList cornell_box() {
     hittableList objects;
 
     auto red = make_shared<lambertian>(color(.65, .05, .05));
