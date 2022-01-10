@@ -12,8 +12,8 @@
 
 using namespace std;
 
-color ray_color(const ray &r, const vec3 &background, const hittable &world,
-                shared_ptr<hittable> &lights, int depth) {
+color ray_color(const ray &r, const color &background, const hittable &world,
+                shared_ptr<hittable> lights, int depth) {
     hit_record rec;
 
     // If we've exceeded the ray bounce limit, no more light is gathered.
@@ -21,25 +21,31 @@ color ray_color(const ray &r, const vec3 &background, const hittable &world,
         return color(0, 0, 0);
 
     // If the ray hits nothing, return the background color.
-    if (!world.hit(r, 0.001, FLT_MAX, rec))
+    if (!world.hit(r, 0.001, FLT_MAX, rec)) {
         return background;
+        vec3 unit_direction = unit_vector(r.direction());
+        auto t = 0.5 * (unit_direction.y() + 1.0);
+        return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);
+    }
 
-    ray scattered;
-    color attenuation;
+    scatter_record srec;
     color emitted = rec.mat_ptr->emitted(r, rec, rec.u, rec.v, rec.p);
-    double pdf_val;
-    color albedo;
-    if (!rec.mat_ptr->scatter(r, rec, albedo, scattered, pdf_val))
-        return emitted;
-    auto p0 = make_shared<hittable_pdf>(lights, rec.p);
-    auto p1 = make_shared<cosine_pdf>(rec.normal);
-    mixture_pdf mixed_pdf(p0, p1);
 
-    scattered = ray(rec.p, mixed_pdf.generate(), r.time());
-    pdf_val = mixed_pdf.value(scattered.direction());
+    if (!rec.mat_ptr->scatter(r, rec, srec))
+        return emitted;
+
+    if (srec.is_specular) {
+        return srec.attenuation * ray_color(srec.specular_ray, background,
+                                            world, lights, depth - 1);
+    }
+
+    auto light_ptr = make_shared<hittable_pdf>(lights, rec.p);
+    mixture_pdf p(light_ptr, srec.pdf_ptr);
+    ray scattered = ray(rec.p, p.generate(), r.time());
+    auto pdf_val = p.value(scattered.direction());
 
     return emitted +
-           albedo * rec.mat_ptr->scattering_pdf(r, rec, scattered) *
+           srec.attenuation * rec.mat_ptr->scattering_pdf(r, rec, scattered) *
                ray_color(scattered, background, world, lights, depth - 1) /
                pdf_val;
 }
@@ -84,14 +90,17 @@ int main() {
     int numProcs = omp_get_max_threads();
     // Image
     const auto aspect_ratio = 1.0 / 1.0;
-    const int Image_Width = 200;
+    const int Image_Width = 400;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);
-    const int SPP = 200;
+    const int SPP = 100;
     const int max_depth = 10;
     // World
-    auto world = cornell_box();
-    shared_ptr<hittable> lights =
-        make_shared<Rect<XZ>>(213, 343, 227, 332, 554, shared_ptr<material>());
+    auto world = test_cornell_box();
+    auto lights = make_shared<hittableList>();
+    lights->add(
+        make_shared<Rect<XZ>>(213, 343, 227, 332, 554, shared_ptr<material>()));
+    lights->add(
+        make_shared<sphere>(point3(190, 90, 190), 90, shared_ptr<material>()));
     const vec3 background(0, 0, 0);
     // Camera
     point3 lookfrom(278, 278, -800);

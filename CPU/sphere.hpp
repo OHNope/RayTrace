@@ -20,6 +20,8 @@ public:
     virtual bool hit(const ray &r, float t_min, float t_max,
                      hit_record &rec) const override;
     bool bounding_box(float t0, float t1, AABB &box) const override;
+    virtual double pdf_value(const point3 &o, const vec3 &v) const override;
+    virtual vec3 random(const point3 &o) const override;
 
 private:
     vec3 centre;
@@ -64,6 +66,38 @@ bool sphere::hit(const ray &r, float t_min, float t_max,
     rec.mat_ptr = mat_ptr;
     get_sphere_uv((rec.p - centre) / radius, rec.u, rec.v);
     return true;
+}
+
+double sphere::pdf_value(const point3 &o, const vec3 &v) const {
+    hit_record rec;
+    if (!this->hit(ray(o, v), 0.001, FLT_MAX, rec))
+        return 0;
+
+    auto cos_theta_max =
+        sqrt(1 - radius * radius / (centre - o).length_squared());
+    auto solid_angle = 2 * M_PI * (1 - cos_theta_max);
+
+    return 1 / solid_angle;
+}
+
+inline vec3 random_to_sphere(double radius, double distance_squared) {
+    auto r1 = random_double();
+    auto r2 = random_double();
+    auto z = 1 + r2 * (sqrt(1 - radius * radius / distance_squared) - 1);
+
+    auto phi = 2 * M_PI * r1;
+    auto x = cos(phi) * sqrt(1 - z * z);
+    auto y = sin(phi) * sqrt(1 - z * z);
+
+    return vec3(x, y, z);
+}
+
+vec3 sphere::random(const point3 &o) const {
+    vec3 direction = centre - o;
+    auto distance_squared = direction.length_squared();
+    onb uvw;
+    uvw.build_from_w(direction);
+    return uvw.local(random_to_sphere(radius, distance_squared));
 }
 
 // 三角形

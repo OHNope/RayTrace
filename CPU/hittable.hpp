@@ -34,13 +34,11 @@ public:
     virtual bool hit(const ray &r, float t_min, float t_max,
                      hit_record &rec) const = 0;
     virtual bool bounding_box(float t0, float t1, AABB &box) const = 0;
-    virtual double pdf_value(const point3& o, const vec3& v) const {
+    virtual double pdf_value(const point3 &o, const vec3 &v) const {
         return 0.0;
     }
 
-    virtual vec3 random(const vec3& o) const {
-        return vec3(1, 0, 0);
-    }
+    virtual vec3 random(const vec3 &o) const { return vec3(1, 0, 0); }
 };
 
 class hittableList : public hittable {
@@ -51,7 +49,10 @@ public:
     void add(shared_ptr<hittable> object) { objects.push_back(object); }
     virtual bool hit(const ray &r, float t_min, float t_max,
                      hit_record &rec) const override;
-    virtual bool bounding_box(float t0, float t1, AABB &box) const override;
+    virtual bool bounding_box(float time0, float time1,
+                              AABB &output_box) const override;
+    virtual double pdf_value(const vec3 &o, const vec3 &v) const override;
+    virtual vec3 random(const vec3 &o) const override;
     vector<shared_ptr<hittable>> objects;
 };
 
@@ -86,6 +87,19 @@ bool hittableList::bounding_box(float t0, float t1, AABB &output_box) const {
     }
 
     return true;
+}
+double hittableList::pdf_value(const point3 &o, const vec3 &v) const {
+    auto weight = 1.0 / objects.size();
+    auto sum = 0.0;
+
+    for (const auto &object : objects)
+        sum += weight * object->pdf_value(o, v);
+
+    return sum;
+}
+vec3 hittableList::random(const vec3 &o) const {
+    auto int_size = static_cast<int>(objects.size());
+    return objects[random_int(0, int_size - 1)]->random(o);
 }
 
 class flip_face : public hittable {
