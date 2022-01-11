@@ -22,7 +22,7 @@ color ray_color(const ray &r, const color &background, const hittable &world,
 
     // If the ray hits nothing, return the background color.
     if (!world.hit(r, 0.001, FLT_MAX, rec)) {
-        return background;
+        // return background;
         vec3 unit_direction = unit_vector(r.direction());
         auto t = 0.5 * (unit_direction.y() + 1.0);
         return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);
@@ -34,10 +34,9 @@ color ray_color(const ray &r, const color &background, const hittable &world,
     if (!rec.mat_ptr->scatter(r, rec, srec))
         return emitted;
 
-    if (srec.is_specular) {
+    if (srec.is_specular)
         return srec.attenuation * ray_color(srec.specular_ray, background,
                                             world, lights, depth - 1);
-    }
 
     auto light_ptr = make_shared<hittable_pdf>(lights, rec.p);
     mixture_pdf p(light_ptr, srec.pdf_ptr);
@@ -92,23 +91,21 @@ int main() {
     const auto aspect_ratio = 1.0 / 1.0;
     const int Image_Width = 400;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);
-    const int SPP = 100;
-    const int max_depth = 10;
+    const int SPP = 400;
+    const int max_depth = 8;
     // World
-    auto world = test_cornell_box();
+    auto world = simple_light();
     auto lights = make_shared<hittableList>();
-    lights->add(
-        make_shared<Rect<XZ>>(213, 343, 227, 332, 554, shared_ptr<material>()));
-    lights->add(
-        make_shared<sphere>(point3(190, 90, 190), 90, shared_ptr<material>()));
+    lights->add(make_shared<sphere>(vec3(0, 7, 0), 2, nullptr));
+    lights->add(make_shared<Rect<XY>>(3, 5, 1, 3, -2, nullptr));
     const vec3 background(0, 0, 0);
     // Camera
-    point3 lookfrom(278, 278, -800);
-    point3 lookat(278, 278, 0);
+    point3 lookfrom = point3(26, 3, 6);
+    point3 lookat = point3(0, 2, 0);
     vec3 vup(0, 1, 0);
     auto dist_to_focus = 10.0;
     auto aperture = 0.0;
-    auto vfov = 40.0;
+    auto vfov = 20.0;
     auto time0 = 0.0;
     auto time1 = 1.0;
 
