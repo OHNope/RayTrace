@@ -9,6 +9,7 @@
 #include <cstdlib>
 
 inline double random_double(double min, double max);
+inline double InvSqrt(double number);
 
 class vec3 {
 public:
@@ -43,7 +44,7 @@ public:
         return this->length_squared() < x.length_squared();
     }
 
-    double length() const { return sqrt(length_squared()); }
+    double length() const { return 1.0 / InvSqrt(length_squared()); }
 
     double length_squared() const {
         return e[0] * e[0] + e[1] * e[1] + e[2] * e[2];

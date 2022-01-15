@@ -67,9 +67,9 @@ void write_color(vector<vector<int>> &out, color pixel_color, int position,
     // Divide the color by the number of samples and gamma-correct for
     // gamma=2.0.
     auto scale = 1.0 / SPP;
-    r = sqrt(scale * r);
-    g = sqrt(scale * g);
-    b = sqrt(scale * b);
+    r = 1.0 / InvSqrt(scale * r);
+    g = 1.0 / InvSqrt(scale * g);
+    b = 1.0 / InvSqrt(scale * b);
 
     // Write the translated [0,255] value of each color component.
     out[position][0] = static_cast<int>(256 * clamp(r, 0.0, 0.999));
@@ -91,7 +91,7 @@ int main() {
     const auto aspect_ratio = 1.0 / 1.0;
     const int Image_Width = 200;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);
-    const int SPP = 50;
+    const int SPP = 30;
     const int max_depth = 5;
     // World
     auto world = test_cornell_box();
