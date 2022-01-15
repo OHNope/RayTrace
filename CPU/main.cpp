@@ -91,7 +91,7 @@ int main() {
     const auto aspect_ratio = 1.0 / 1.0;
     const int Image_Width = 200;
     const int Image_Height = static_cast<int>(Image_Width / aspect_ratio);
-    const int SPP = 200;
+    const int SPP = 50;
     const int max_depth = 5;
     // World
     auto world = test_cornell_box();

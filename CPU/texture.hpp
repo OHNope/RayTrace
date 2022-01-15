@@ -34,7 +34,8 @@ public:
         : even(t0), odd(t1) {}
 
     virtual vec3 value(double u, double v, const vec3 &p) const {
-        auto sines = sin(10 * p.x()) * sin(10 * p.y()) * sin(10 * p.z());
+        auto sines = fast_sinf(10 * p.x()) * fast_sinf(10 * p.y()) *
+                     fast_sinf(10 * p.z());
         if (sines < 0)
             return odd->value(u, v, p);
         else
@@ -53,7 +54,7 @@ public:
 
     virtual vec3 value(double u, double v, const vec3 &p) const {
         return vec3(1, 1, 1) * 0.5 *
-               (1 + sin(scale * p.z() + 10 * noise.turb(p)));
+               (1 + fast_sinf(scale * p.z() + 10 * noise.turb(p)));
     }
 
 public:

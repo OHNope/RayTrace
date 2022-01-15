@@ -179,8 +179,8 @@ bool rotate_y::bounding_box(float t0, float t1, AABB &output_box) const {
 
 rotate_y::rotate_y(shared_ptr<hittable> p, double angle) : ptr(p) {
     auto radians = degrees_to_radians(angle);
-    sin_theta = sin(radians);
-    cos_theta = cos(radians);
+    sin_theta = fast_sinf(radians);
+    cos_theta = fast_cosf(radians);
     hasbox = ptr->bounding_box(0, 1, bbox);
 
     vec3 min(DBL_MAX, DBL_MAX, DBL_MAX);
