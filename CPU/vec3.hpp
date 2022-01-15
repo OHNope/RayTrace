@@ -10,6 +10,7 @@
 
 inline double random_double(double min, double max);
 inline double InvSqrt(double number);
+#define FAST_SQRT(num) (1.0 / InvSqrt(num))
 
 class vec3 {
 public:
@@ -44,7 +45,7 @@ public:
         return this->length_squared() < x.length_squared();
     }
 
-    double length() const { return 1.0 / InvSqrt(length_squared()); }
+    double length() const { return FAST_SQRT(length_squared()); }
 
     double length_squared() const {
         return e[0] * e[0] + e[1] * e[1] + e[2] * e[2];

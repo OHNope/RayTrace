@@ -52,7 +52,7 @@ bool sphere::hit(const ray &r, float t_min, float t_max,
     if (discriminant < 0)
         return false;
 
-    float sqrt_delta = 1.0 / InvSqrt(discriminant);
+    float sqrt_delta = FAST_SQRT(discriminant);
 
     float tmp = (-b - sqrt_delta) / a;
     if (tmp > t_max || tmp < t_min || fabs(tmp) < 0.0005f) {
@@ -74,7 +74,7 @@ double sphere::pdf_value(const point3 &o, const vec3 &v) const {
         return 0;
 
     auto cos_theta_max =
-        1.0 / InvSqrt(1 - radius * radius / (centre - o).length_squared());
+        FAST_SQRT(1 - radius * radius / (centre - o).length_squared());
     auto solid_angle = 2 * M_PI * (1 - cos_theta_max);
 
     return 1 / solid_angle;
@@ -83,12 +83,11 @@ double sphere::pdf_value(const point3 &o, const vec3 &v) const {
 inline vec3 random_to_sphere(double radius, double distance_squared) {
     auto r1 = random_double();
     auto r2 = random_double();
-    auto z =
-        1 + r2 * (1.0 / InvSqrt(1 - radius * radius / distance_squared) - 1);
+    auto z = 1 + r2 * (FAST_SQRT(1 - radius * radius / distance_squared) - 1);
 
     auto phi = 2 * M_PI * r1;
-    auto x = cos(phi) * 1.0 / InvSqrt(1 - z * z);
-    auto y = sin(phi) * 1.0 / InvSqrt(1 - z * z);
+    auto x = cos(phi) * FAST_SQRT(1 - z * z);
+    auto y = sin(phi) * FAST_SQRT(1 - z * z);
 
     return vec3(x, y, z);
 }
@@ -135,7 +134,7 @@ bool moving_sphere::hit(const ray &r, float t_min, float t_max,
     auto discriminant = half_b * half_b - a * c;
 
     if (discriminant > 0) {
-        auto root = 1.0 / InvSqrt(discriminant);
+        auto root = FAST_SQRT(discriminant);
 
         auto temp = (-half_b - root) / a;
         if (temp < t_max && temp > t_min) {

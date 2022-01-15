@@ -90,6 +90,7 @@ inline float InvSqrt(float number) {
     y = y * (threehalfs - (x2 * y * y));
     return y;
 }
+#define FAST_SQRT(num) (1.0 / InvSqrt(num))
 
 inline float acosFast4(float inX) {
     float x1 = abs(inX);
@@ -100,7 +101,7 @@ inline float acosFast4(float inX) {
     s = -0.2121144f * x1 + 1.5707288f;
     s = 0.0742610f * x2 + s;
     s = -0.0187293f * x3 + s;
-    s = 1.0 / InvSqrt(1.0f - x1) * s;
+    s = FAST_SQRT(1.0f - x1) * s;
 
     return inX >= 0.0f ? s : 3.1415926535897932384626433f - s;
 }
@@ -143,10 +144,10 @@ inline double random_double(double min, double max) {
 inline vec3 random_cosine_direction() {
     double r1 = random_double();
     double r2 = random_double();
-    double z = sqrt(1 - r2);
+    double z = FAST_SQRT(1 - r2);
     double φ = 2 * M_PI * r1;
-    double x = fast_cosf(φ) * 2 * sqrt(r2);
-    double y = fast_sinf(φ) * 2 * sqrt(r2);
+    double x = fast_cosf(φ) * 2 * FAST_SQRT(r2);
+    double y = fast_sinf(φ) * 2 * FAST_SQRT(r2);
     return vec3(x, y, z);
 }
 
