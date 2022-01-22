@@ -17,4 +17,12 @@ CPU/test.txt
 CPU/Testing
 CPU/test.png
 CPU/.DS_Store
+GPU/a.txt
+GPu/b.cpp
+CPU/cmake_install.cmake
+GPU/CMakeFiles
+GPU/CMakeCache.txt
+GPU/Makefile
+GPU/RayTrace
+GPU/cmake_install.cmake
 .DS_Store
