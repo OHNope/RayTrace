@@ -1,3 +1,0 @@
-# RayTrace
-Lite RayTrace completely based on C++
-...
