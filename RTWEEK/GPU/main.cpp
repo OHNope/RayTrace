@@ -83,8 +83,8 @@ public:
     GLuint vao, vbo;
     std::vector<GLuint> colorAttachments;
     GLuint program;
-    int width = 512;
-    int height = 512;
+    int width = 512 * 2;
+    int height = 512 * 2;
     void bindData(bool finalPass = false) {
         if (!finalPass)
             glGenFramebuffers(1, &FBO);
@@ -640,19 +640,31 @@ int buildBVHwithSAH(std::vector<Triangle> &triangles,
 // //
 
 // 绘制
-clock_t t1, t2;
-double dt, fps;
 unsigned int frameCounter = 0;
-void display() {
+unsigned long GetTickCount() {
+    struct timespec ts;
 
-    // 帧计时
-    t2 = clock();
-    dt = (double)(t2 - t1) / CLOCKS_PER_SEC;
-    fps = 1.0 / dt;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+
+    return (ts.tv_sec * 1000 + ts.tv_nsec / 1000000);
+}
+void CalculateFrameRate(const unsigned int frameCounter) {
+    static float framesPerSecond = 0.0f;
+    static int fps;
+    static float lastTime = 0.0f;
+    float currentTime = GetTickCount() * 0.001f;
+    ++framesPerSecond;
     std::cout << "\r";
     std::cout << std::fixed << std::setprecision(2) << "FPS : " << fps
               << "    迭代次数: " << frameCounter;
-    t1 = t2;
+    if (currentTime - lastTime > 1.0f) {
+        lastTime = currentTime;
+        fps = (int)framesPerSecond;
+        framesPerSecond = 0;
+    }
+}
+void display() {
+    CalculateFrameRate(frameCounter);
 
     // 相机参数
     vec3 eye = vec3(-sin(radians(rotatAngle)) * cos(radians(upAngle)),
@@ -698,14 +710,49 @@ void display() {
 // -----------------------------------------------------------------------------
 // //
 GLFWwindow *window;
+// 鼠标运动函数
+double lastX = 0.0, lastY = 0.0;
+void curse_poscallback(GLFWwindow *window, double x, double y) {
+    frameCounter = 0;
+    // 调整旋转
+    rotatAngle += 150 * (x - lastX) / 512;
+    upAngle += 150 * (y - lastY) / 512;
+    upAngle = min(upAngle, 89.0f);
+    upAngle = max(upAngle, -89.0f);
+    lastX = x, lastY = y;
+}
+
+void key_callback(GLFWwindow *window, int key, int scancode, int action,
+                  int mode) {
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) //按下esc退出程序
+    {
+        glfwSetWindowShouldClose(window, GL_TRUE);
+    }; /*else if (key == GLFW_KEY_LEFT) {
+        gX -= 0.01;
+    } */
+}
+void mouse_button_callback(GLFWwindow *window, int button, int action,
+                           int mods) {
+    if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
+        glfwGetCursorPos(window, &lastX, &lastY);
+}
+//滚轮的回调
+void scroll_callback(GLFWwindow *window, double xoffset, double yoffset) {
+    frameCounter = 0;
+    r += -yoffset * 0.5;
+}
+//窗口尺寸改变的回调
+void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
+    glViewport(0, 0, width, height);
+}
 int main(int argc, char **argv) {
     const char *glfwVersion = glfwGetVersionString();
     printf("glfw实现的版本号：%s\n", glfwVersion);
 
     if (!glfwInit())
         return -1;
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 #ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
@@ -717,6 +764,13 @@ int main(int argc, char **argv) {
         return -1;
     }
     glfwMakeContextCurrent(window);
+    glfwSetCursorPosCallback(window, curse_poscallback);
+    glfwSetKeyCallback(window, key_callback);
+    glfwSetMouseButtonCallback(window, mouse_button_callback);
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    glfwSetScrollCallback(window, scroll_callback);
+    //使窗口隐藏光标并且捕捉它
+    // glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     glewExperimental = GL_TRUE;
     glewInit();
 

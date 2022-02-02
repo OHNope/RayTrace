@@ -8,9 +8,7 @@
 #include <vector>
 
 #include <GL/glew.h>
-//#include <FREEGLUT/freeglut.h>
 #include <GLFW/glfw3.h>
-#include <SOIL2/SOIL2.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -30,14 +28,14 @@ struct Material {
     vec3 baseColor = vec3(1, 1, 1);
     float subsurface = 0.0;
     float metallic = 0.0;
-    float specular = 0.0;
+    float specular = 0.5;
     float specularTint = 0.0;
-    float roughness = 0.0;
+    float roughness = 0.5;
     float anisotropic = 0.0;
     float sheen = 0.0;
-    float sheenTint = 0.0;
+    float sheenTint = 0.5;
     float clearcoat = 0.0;
-    float clearcoatGloss = 0.0;
+    float clearcoatGloss = 1.0;
     float IOR = 1.0;
     float transmission = 0.0;
 };
@@ -646,6 +644,7 @@ clock_t t1, t2;
 double dt, fps;
 unsigned int frameCounter = 0;
 void display() {
+
     // 帧计时
     t2 = clock();
     dt = (double)(t2 - t1) / CLOCKS_PER_SEC;
@@ -694,18 +693,22 @@ void display() {
     pass1.draw();
     pass2.draw(pass1.colorAttachments);
     pass3.draw(pass2.colorAttachments);
-
-    // glfwSwapBuffers(window);
-}
-/*
-// 每一帧
-void frameFunc() {
-    glutPostRedisplay();
 }
 
 // 鼠标运动函数
 double lastX = 0.0, lastY = 0.0;
-void mouse(int x, int y) {
+// 鼠标按下
+
+// 鼠标滚轮函数
+void mouseWheel(int wheel, int direction, int x, int y) {
+    frameCounter = 0;
+    r += -direction * 0.5;
+}
+
+// -----------------------------------------------------------------------------
+// //
+GLFWwindow *window;
+void curse_poscallback(GLFWwindow *window, double x, double y) {
     frameCounter = 0;
     // 调整旋转
     rotatAngle += 150 * (x - lastX) / 512;
@@ -713,43 +716,22 @@ void mouse(int x, int y) {
     upAngle = min(upAngle, 89.0f);
     upAngle = max(upAngle, -89.0f);
     lastX = x, lastY = y;
-    glutPostRedisplay();    // 重绘
 }
-
-// 鼠标按下
-void mouseDown(int button, int state, int x, int y) {
-    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-        lastX = x, lastY = y;
-    }
-}
-
-// 鼠标滚轮函数
-void mouseWheel(int wheel, int direction, int x, int y) {
-    frameCounter = 0;
-    r += -direction * 0.5;
-    glutPostRedisplay();    // 重绘
-}*/
 
 void key_callback(GLFWwindow *window, int key, int scancode, int action,
                   int mode) {
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) //按下esc退出程序
     {
         glfwSetWindowShouldClose(window, GL_TRUE);
-    } else if (key == GLFW_KEY_LEFT) {
-        // gX -= 0.01;
-    } else if (key == GLFW_KEY_RIGHT) {
-        //  gX += 0.01;
-    } else if (key == GLFW_KEY_UP) {
-        //  gY += 0.01;
-    } else if (key == GLFW_KEY_DOWN) {
-        // gY -= 0.01;
-    }
+    }; /*else if (key == GLFW_KEY_LEFT) {
+        gX -= 0.01;
+    } */
 }
-
-// -----------------------------------------------------------------------------
-// //
-GLFWwindow *window;
-void error_callback(int code, const char *description) { ; };
+void mouse_button_callback(GLFWwindow *window, int button, int action,
+                           int mods) {
+    if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
+        glfwGetCursorPos(window, &lastX, &lastY);
+}
 int main(int argc, char **argv) {
     const char *glfwVersion = glfwGetVersionString();
     printf("glfw实现的版本号：%s\n", glfwVersion);
@@ -759,16 +741,19 @@ int main(int argc, char **argv) {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    glfwSetErrorCallback(error_callback);
 #ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
-    window = glfwCreateWindow(512, 512, "Hello World", NULL, NULL); // 窗口大小
+    window =
+        glfwCreateWindow(512, 512, "Path Tracing GPU", NULL, NULL); // 窗口大小
     if (!window) {
         glfwTerminate();
         return -1;
     }
     glfwMakeContextCurrent(window);
+    glfwSetCursorPosCallback(window, curse_poscallback);
+    glfwSetKeyCallback(window, key_callback);
+    glfwSetMouseButtonCallback(window, mouse_button_callback);
     glewExperimental = GL_TRUE;
     glewInit();
 
@@ -779,28 +764,59 @@ int main(int argc, char **argv) {
     std::vector<Triangle> triangles;
 
     Material m;
-    m.baseColor = vec3(1, 1, 1);
-    readObj("models/Stanford Bunny.obj", triangles, m,
-            getTransformMatrix(vec3(0, 0, 0), vec3(0.3, -1.6, 0),
-                               vec3(1.5, 1.5, 1.5)),
+    m.baseColor = vec3(1, 0.5, 0.5);
+    m.roughness = 0.1;
+    m.metallic = 0.0;
+    m.clearcoat = 1.0;
+    m.subsurface = 1.0;
+    // m.clearcoatGloss = 0.05;
+    // readObj("models/sphere2.obj", triangles, m, getTransformMatrix(vec3(0, 0,
+    // 0), vec3(-1, -0.85, 0), vec3(0.75, 0.75, 0.75)),true);
+    // readObj("models/Stanford Bunny.obj", triangles, m,
+    // getTransformMatrix(vec3(0, 0, 0), vec3(-2.6, -1.5, 0),
+    // vec3(2.5, 2.5, 2.5)), true);
+
+    m.baseColor = vec3(0.5, 1, 0.5);
+    m.baseColor = vec3(0.75, 0.7, 0.15);
+    m.roughness = 0.15;
+    m.metallic = 1.0;
+    m.clearcoat = 1.0;
+    // m.emissive = vec3(10, 20, 10);
+    // readObj("models/sphere2.obj", triangles, m, getTransformMatrix(vec3(0, 0,
+    // 0), vec3(0, -0.85, 0), vec3(0.75, 0.75, 0.75)), true);
+    readObj("models/teapot.obj", triangles, m,
+            getTransformMatrix(vec3(0, 0, 0), vec3(0, -0.4, 0),
+                               vec3(1.75, 1.75, 1.75)),
             true);
-    // readObj("models/room.obj", triangles, m, getTransformMatrix(vec3(0, 0,
-    // 0), vec3(0.0, -2.5, 0), vec3(10, 10, 10)), true);
+    // readObj("models/Stanford Bunny.obj", triangles, m,
+    // getTransformMatrix(vec3(0, 0, 0), vec3(0.4, -1.5, 0),
+    // vec3(2.5, 2.5, 2.5)), true);
 
+    m.baseColor = vec3(0.5, 0.5, 1);
+    m.metallic = 0.0;
+    m.roughness = 0.1;
+    m.clearcoat = 1.0;
+    // m.emissive = vec3(10, 10, 20);
+    // readObj("models/sphere2.obj", triangles, m, getTransformMatrix(vec3(0, 0,
+    // 0), vec3(1, -0.85, 0), vec3(0.75, 0.75, 0.75)), true);
+    // readObj("models/Stanford Bunny.obj", triangles, m,
+    // getTransformMatrix(vec3(0, 0, 0), vec3(3.4, -1.5, 0),
+    // vec3(2.5, 2.5, 2.5)), true);
+
+    m.emissive = vec3(0, 0, 0);
     m.baseColor = vec3(0.725, 0.71, 0.68);
-    readObj("models/quad.obj", triangles, m,
-            getTransformMatrix(vec3(0, 0, 0), vec3(0, -1.4, 0),
-                               vec3(18.83, 0.01, 18.83)),
-            false);
+    m.baseColor = vec3(1, 1, 1);
+
+    float len = 13.0;
+    m.metallic = 0.7;
+    m.roughness = 0.3;
+    // readObj("models/quad.obj", triangles, m, getTransformMatrix(vec3(0, 0,
+    // 0), vec3(0, -1.5, 0), vec3(len, 0.01, len)), false);
 
     m.baseColor = vec3(1, 1, 1);
-    m.emissive = vec3(30, 20, 10);
+    m.emissive = vec3(20, 20, 20);
     // readObj("models/quad.obj", triangles, m, getTransformMatrix(vec3(0, 0,
-    // 0), vec3(0.0, 1.38, -0.0), vec3(0.7, 0.01, 0.7)), false);
-    readObj(
-        "models/sphere.obj", triangles, m,
-        getTransformMatrix(vec3(0, 0, 0), vec3(0.0, 0.9, -0.0), vec3(1, 1, 1)),
-        false);
+    // 0), vec3(0.0, 1.48, -0.0), vec3(1.7, 0.01, 1.7)), false);
 
     int nTriangles = triangles.size();
     std::cout << "模型读取完成: 共 " << nTriangles << " 个三角形" << std::endl;
@@ -851,6 +867,7 @@ int main(int argc, char **argv) {
         nodes_encoded[i].AA = nodes[i].AA;
         nodes_encoded[i].BB = nodes[i].BB;
     }
+
     // -----------------------------------------------------------------------------
     // //
 
@@ -860,14 +877,13 @@ int main(int argc, char **argv) {
     GLuint tbo0;
     glGenBuffers(1, &tbo0);
     glBindBuffer(GL_TEXTURE_BUFFER, tbo0);
-
     glBufferData(GL_TEXTURE_BUFFER,
                  triangles_encoded.size() * sizeof(Triangle_encoded),
                  &triangles_encoded[0], GL_STATIC_DRAW);
-
     glGenTextures(1, &trianglesTextureBuffer);
     glBindTexture(GL_TEXTURE_BUFFER, trianglesTextureBuffer);
     glTexBuffer(GL_TEXTURE_BUFFER, GL_RGB32F, tbo0);
+
     // BVHNode 数组
     GLuint tbo1;
     glGenBuffers(1, &tbo1);
@@ -878,9 +894,10 @@ int main(int argc, char **argv) {
     glGenTextures(1, &nodesTextureBuffer);
     glBindTexture(GL_TEXTURE_BUFFER, nodesTextureBuffer);
     glTexBuffer(GL_TEXTURE_BUFFER, GL_RGB32F, tbo1);
+
     // hdr 全景图
     HDRLoaderResult hdrRes;
-    bool r = HDRLoader::load("./HDR/circus_arena_4k.hdr", hdrRes);
+    bool r = HDRLoader::load("./HDR/peppermint_powerplant_4k.hdr", hdrRes);
     hdrMap = getTextureRGB32F(hdrRes.width, hdrRes.height);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB32F, hdrRes.width, hdrRes.height, 0,
                  GL_RGB, GL_FLOAT, hdrRes.cols);
@@ -945,13 +962,6 @@ int main(int argc, char **argv) {
     }
     // Properly de-allocate all resources once they've outlived their purpose
     glfwTerminate();
-
-    /*glutDisplayFunc(display);   // 设置显示回调函数
-    glutIdleFunc(frameFunc);    // 闲置时刷新
-    glutMotionFunc(mouse);      // 鼠标拖动
-    glutMouseFunc(mouseDown);   // 鼠标左键按下
-    glutMouseWheelFunc(mouseWheel); // 滚轮缩放
-    glutMainLoop();*/
 
     return 0;
 }
