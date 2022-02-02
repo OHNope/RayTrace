@@ -2,7 +2,7 @@
 
 in vec3 pix;
 out vec4 fragColor;
-layout(location = 0) out vec4 FragData;
+layout (location = 0) out vec4 FragData;
 
 uniform sampler2D texPass0;
 uniform sampler2D texPass1;
